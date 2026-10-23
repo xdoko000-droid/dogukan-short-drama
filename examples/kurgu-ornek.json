@@ -1,0 +1,30 @@
+{
+  "cikti": "output/bolum.mp4",
+  "ayarlar": {
+    "bolum_basligi": "Bölüm 1",
+    "baslik_suresi": 1.0,
+    "genislik": 1080,
+    "yukseklik": 1920,
+    "fps": 30,
+    "muzik": true,
+    "muzik_bpm": 100,
+    "muzik_seviyesi_db": -15,
+    "hedef_lufs": -15,
+    "max_mb": 30,
+    "altyazi": true,
+    "whisper_model": "small",
+    "dil": "tr"
+  },
+  "cekimler": [
+    {"klip": "klipler/01.mp4", "giris": 0.35, "cikis": 3.95, "punch_in": 10, "efekt": "boom",
+     "replik": "Davetiyeleri ben bastırdım, Defne."},
+    {"klip": "klipler/02.mp4", "giris": 0.0, "cikis": 1.2, "punch_bas": 12, "punch_in": 16, "efekt": "riser"},
+    {"kart": "3 GÜN ÖNCE", "sure": 1.0, "efekt": "whoosh"},
+    {"klip": "klipler/03.mp4", "giris": 0.2, "cikis": 2.2, "ses": "ortam", "ekran_yazisi": "Otel lobisi"},
+    {"klip": "klipler/04.mp4", "giris": 0.6, "cikis": 3.4, "punch_in": 6, "sessizlik_once": 0.3, "efekt": "boom",
+     "replik": "Gelin kısmında Selin yazıyor."},
+    {"klip": "klipler/05.mp4", "giris": 0.5, "cikis": 2.4, "efekt": "whoosh", "replik": "Siz mi?"},
+    {"klip": "klipler/06.mp4", "giris": 1.5, "cikis": 3.5, "punch_in": 18, "efekt": ["riser", "boom"], "ses": "sessiz"},
+    {"kart": "Devamı için\ntakip et", "sure": 2.0, "efekt": "hit", "muzik": false}
+  ]
+}

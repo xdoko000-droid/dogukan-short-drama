@@ -1,0 +1,5 @@
+# Kurgu betikleri (scripts/) icin Python bagimliliklari. Python >= 3.10
+imageio-ffmpeg>=0.5.1   # libass'li ffmpeg yedegi (PATH'teki ffmpeg'de subtitles filtresi yoksa)
+numpy>=1.24
+faster-whisper>=1.1.0   # kelime zamanlamali Turkce altyazi
+pyyaml>=6.0             # kurgu.yaml okumak icin (kurgu.json kullaniyorsan gerekmez)

@@ -1,0 +1,35 @@
+# Üretim çıktıları
+uretim/
+output/
+cikti/
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.m4a
+
+# Gizli bilgiler
+.env
+.env.*
+*.key
+credentials*.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Sistem
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Claude Code yerel ayarları
+.claude/settings.local.json
+.claude/agent-memory/
+
+# Ornek test klipleri (scripts/ornek_klip.py uretir)
+examples/klipler/
+.claude/agent-memory/
