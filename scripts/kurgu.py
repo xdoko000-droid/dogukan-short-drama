@@ -252,8 +252,9 @@ def kelimeleri_cikar(cekimler: list[dict], ay: dict, tmp: Path) -> list[altyazi.
     try:
         duyulan = altyazi.whisper_kelimeler(tmp / "whisper.wav", ay["whisper_model"], ay["dil"],
                                             ipucu=" ".join(replikler) or None)
-    except RuntimeError as e:
-        print(f"  ! {e}\n  ! Altyazi senaryo metninden, tahmini zamanlamayla uretilecek.")
+    except Exception as e:  # paket yok, model indirilemedi (internet yok) vb.
+        print(f"  ! Whisper calismadi: {type(e).__name__}: {str(e)[:200]}\n"
+              "  ! Altyazi senaryo metninden, tahmini zamanlamayla uretilecek.")
         duyulan = []
     rapor = []
     kelimeler: list[altyazi.Kelime] = []

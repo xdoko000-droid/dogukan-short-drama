@@ -33,3 +33,6 @@ desktop.ini
 # Ornek test klipleri (scripts/ornek_klip.py uretir)
 examples/klipler/
 .claude/agent-memory/
+
+# Ornek kurgu ciktisi (scripts/deneme.py uretir)
+examples/output/

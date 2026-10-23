@@ -124,6 +124,11 @@ Terminal'i aç.
    ```
 5. **Higgsfield MCP'yi bağla** — aşağıdaki bölüme bak.
 
+> Python 3.10+ gerekir. Mac'in sistem Python'u 3.9 olabilir (`python3 --version`). Homebrew kurmak istemiyorsan
+> [uv](https://docs.astral.sh/uv/getting-started/installation/) ile: `uv python install 3.12`, sonra
+> `uv venv --python 3.12 .venv` ve `uv pip install --python .venv/bin/python -r requirements.txt`.
+> Ya da https://www.python.org/downloads/ yükleyicisi, ardından `python3.12 -m venv .venv`. Eski `.venv`'i silip yeniden oluştur.
+
 > Not: Homebrew'un ffmpeg'i altyazı gömmeyi (libass) desteklemeyebilir. `requirements.txt` içindeki
 > `imageio-ffmpeg` paketi destekleyen bir ffmpeg getirir; `python3 scripts/doctor.py` doğru olanı seçer.
 
@@ -152,12 +157,16 @@ python3 scripts/doctor.py     # Mac
 ```
 Her satırda ✓ varsa hazırsın. (Sanal ortam etkinse iki platformda da `python` yeter.)
 
-Kurguyu kredi harcamadan denemek için önce test klipleri üret, sonra örnek kurguyu çalıştır:
+### Deneme
+
+Kurguyu kredi harcamadan dene. Bu adım ücretsizdir, onay gerektirmez; Higgsfield'a dokunmaz
+(yalnız yerel ffmpeg ile renkli test klipleri üretip örnek kurguyu çalıştırır):
 ```
-python scripts/ornek_klip.py
-python scripts/kurgu.py examples/kurgu-ornek.json
+python scripts/deneme.py
 ```
-Çıktı: `examples/output/bolum.mp4`.
+Çıktı: `examples/output/bolum.mp4`. (Aynısı elle: `python scripts/ornek_klip.py` ardından
+`python scripts/kurgu.py examples/kurgu-ornek.json`.) Altyazı modeli ilk çalıştırmada ücretsiz indirilir;
+internet yoksa altyazı tahmini zamanlamayla yazılır.
 
 ---
 

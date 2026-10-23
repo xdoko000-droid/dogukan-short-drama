@@ -14,6 +14,7 @@ kod bloğunda göster, ne yaptığını tek cümleyle söyle.
 - Kullanıcı teknik bilmiyor varsay. Komutları sen çalıştır. Onun yapması gerekenleri (tarayıcıda giriş,
   Claude'u yeniden açmak) adım adım söyle. Sistem yazılımı (winget/brew/pip) kurmadan önce onay al.
 - Değişmez kural aynen geçerli: **her ücretli üretim ve yeniden deneme öncesi maliyet gösterilir, onay alınır.**
+- Kurulum denemesi (`scripts/deneme.py` ya da `ornek_klip.py` + `kurgu.py`) **ücretsizdir, onay gerektirmez; Higgsfield'a dokunmaz.** Çekinmeden çalıştır.
 - Windows'ta önce aşağıdaki "Windows tuzakları"na bak.
 
 ## İlk açılışta (her yeni oturumda bir kez)
@@ -24,6 +25,7 @@ kod bloğunda göster, ne yaptığını tek cümleyle söyle.
    python3 scripts/doctor.py         # Mac
    ```
    Eksik varsa (Python 3.10+, ffmpeg, paketler) kullanıcıya kurulum adımını göster: `README.md` → Elle kurulum (ya da `/kur` akışı).
+   Python < 3.10 ise (ör. Mac sistem Python'u 3.9) `/kur` 3. adımındaki Homebrew / uv / python.org seçeneklerini izle.
    Paketler için (önerilen: önce sanal ortam):
    ```
    # Windows (activate gerekmez; execution policy engeline takılmaz)
@@ -49,6 +51,7 @@ kod bloğunda göster, ne yaptığını tek cümleyle söyle.
 1. **Her ücretli üretimden önce maliyeti göster ve onay al.** MCP'nin maliyet aracı varsa onu kullan;
    yoksa `higgsfield generate cost <model> ...`. Onaysız gönderim yok. Yeniden üretim ve filtre reti
    sonrası yapılan deneme de ayrı maliyet onayı ister.
+   İstisna: scripts/ altındaki betiklerin hiçbiri ücretli API çağırmaz; ücretli olan yalnız Higgsfield MCP/CLI üretim araçlarıdır.
 2. **Toplam tavan belirle** (bölüm başında, kullanıcıyla). Harcamayı `uretim/<seri>/harcama.txt`'ye yaz.
    Tavanı aşacaksan dur ve sor.
 3. **Çift gönderim yapma.** Zaman aşımında yeniden göndermeden önce iş listesine bak.
@@ -83,7 +86,7 @@ Yöntemin tamamı: `.claude/skills/short-drama-tr/SKILL.md`.
 | `docs/03-dersler.md` | Gerçek üretimden dersler (filtre, ses, kare zinciri) |
 | `docs/04-tiktok-yayin.md` | Yayın metni ve kuralları |
 | `docs/05-higgsfield-mcp-kurulum.md` | Higgsfield MCP ve CLI kurulumu |
-| `scripts/` | `doctor.py`, `kare.py`, `zincir.py`, `sfx.py`, `altyazi.py`, `kurgu.py`, `ornek_klip.py` (örnek kurgu için test klipleri), `ffmpeg_yol.py` (ortak modül). Kullanım: `scripts/README.md` ve `--help` |
+| `scripts/` | `doctor.py`, `kare.py`, `zincir.py`, `sfx.py`, `altyazi.py`, `kurgu.py`, `ornek_klip.py` (örnek kurgu için test klipleri), `deneme.py` (uçtan uca deneme), `ffmpeg_yol.py` (ortak modül). `ornek_klip.py` ve `deneme.py` ücretsizdir, onay gerektirmez; Higgsfield'a dokunmaz. Kullanım: `scripts/README.md` ve `--help` |
 | `examples/kurgu-ornek.json` | `scripts/kurgu.py` için örnek kurgu dosyası (çekim listesinin makine hâli) |
 | `uretim/` | Kullanıcının üretimleri (git'e girmez) |
 

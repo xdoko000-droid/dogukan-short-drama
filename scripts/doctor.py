@@ -42,7 +42,13 @@ def main() -> None:
 
     v = sys.version_info
     satir(v >= (3, 10), f"Python {v.major}.{v.minor}.{v.micro} (>= 3.10 gerekli)", "",
-          "winget install Python.Python.3.12", "brew install python@3.12")
+          "winget install Python.Python.3.12",
+          "brew install python@3.12\n"
+          "              ya da Homebrew yoksa uv: https://docs.astral.sh/uv/getting-started/installation/\n"
+          "              sonra: uv python install 3.12 && uv venv --python 3.12 .venv")
+    if v < (3, 10):
+        print("     Sonra .venv'i yeni Python ile yeniden olustur ve requirements.txt'yi kur"
+              " (python3.12 -m venv .venv  ya da  uv venv --python 3.12 .venv).")
 
     paket = {m: importlib.util.find_spec(m) is not None for m in ("numpy", "imageio_ffmpeg", "faster_whisper", "whisper", "yaml")}
     pip_w, pip_m = "py -m pip install -r requirements.txt", "python3 -m pip install -r requirements.txt"
@@ -93,7 +99,10 @@ def main() -> None:
     if sorunlar:
         print(f"{sorunlar} zorunlu eksik var. Yukaridaki kurulum komutlarini calistirip tekrar dene.")
         sys.exit(1)
-    print("Her sey hazir. Ornek kurgu:\n  python scripts/ornek_klip.py\n  python scripts/kurgu.py examples/kurgu-ornek.json")
+    print("Her sey hazir. Deneme (ucretsiz, yerel test; Higgsfield'a dokunmaz):\n"
+          "  python scripts/deneme.py                         (ucretsiz, yerel test)\n"
+          "  ya da: python scripts/ornek_klip.py              (ucretsiz, yerel test)\n"
+          "         python scripts/kurgu.py examples/kurgu-ornek.json  (ucretsiz, yerel test)")
 
 
 if __name__ == "__main__":

@@ -5,11 +5,15 @@ Kurulum (Python 3.10+): Windows `py -m pip install -r requirements.txt`, Mac `py
 Sanal ortam (`.venv`) etkinse iki platformda da aşağıdaki `python` komutları çalışır; değilse Windows'ta `py`, Mac'te `python3` yaz.
 Her betikte `--help` var.
 
+**Bu klasördeki betiklerin hiçbiri ücretli API çağırmaz ve Higgsfield'a dokunmaz.** `ornek_klip.py` ve `deneme.py`
+ücretsizdir, onay gerektirmez. Tek internet kullanımı: whisper modeli ilk çalıştırmada (ücretsiz) indirilir.
+
 | Betik | Ne yapar | Örnek |
 |---|---|---|
+| `deneme.py` | **Ücretsiz uçtan uca deneme**: `ornek_klip.py` + `kurgu.py examples/kurgu-ornek.json`, çıktı yolunu yazar. Onay gerektirmez; Higgsfield'a dokunmaz | `python scripts/deneme.py` |
 | `doctor.py` | Kurulumu kontrol eder (Python, ffmpeg/ffprobe, libass, whisper, font, Higgsfield CLI); eksik için winget/brew komutu verir | `python scripts/doctor.py` |
 | `kurgu.py` | Ana kurgu: kırp, 1080x1920 ölçekle, punch-in, birleştir, efekt + müzik, loudnorm (−15 LUFS), kelime altyazısı, gömme → json'daki `"cikti"` | `python scripts/ornek_klip.py` ardından `python scripts/kurgu.py examples/kurgu-ornek.json` |
-| `ornek_klip.py` | Örnek kurgu için test klipleri üretir (1080x1920, sinüs sesli, "KLİP N" yazılı) → `examples/klipler/01.mp4` … (git'e girmez) | `python scripts/ornek_klip.py` |
+| `ornek_klip.py` | **Ücretsiz, yerel ffmpeg.** Bu adım onay gerektirmez; Higgsfield'a dokunmaz. Örnek kurgu için test klipleri üretir (1080x1920, sinüs sesli, "KLİP N" yazılı) → `examples/klipler/01.mp4` … (git'e girmez) | `python scripts/ornek_klip.py` |
 | `altyazi.py` | faster-whisper ile kelime zamanlaması; senaryo replikleriyle düzeltme; TikTok tarzı ASS (aktif kelime sarı) + SRT | `python scripts/altyazi.py output/bolum.mp4 --replikler replik.json` |
 | `sfx.py` | BOOM, WHOOSH, RISER, HIT ve BPM ayarlı gerilim müziği sentezler (harici ses dosyası yok) | `python scripts/sfx.py --cikti output/sfx --bpm 100` |
 | `zincir.py` | Kare zinciri: A klibinin sonunda B'nin ilk karesine en benzeyen kareyi SSIM ile bulur, kesim noktası önerir | `python scripts/zincir.py klipler/01.mp4 klipler/02.mp4` |
@@ -20,7 +24,7 @@ Her betikte `--help` var.
 
 Göreli yollar yapılandırma dosyasının klasörüne göredir. Ara dosyalar `<çıktı klasörü>/.kurgu-tmp` altına yazılır;
 `--temiz` yalnız bu klasörü siler. `--altyazisiz` whisper adımını atlar. `.kurgu-tmp/replik-rapor.json` whisper'ın ne duyduğunu gösterir.
-Whisper hiçbir şey duymazsa (ör. `ornek_klip.py`'nin sinüs sesi) altyazı replik metninden tahmini zamanlamayla yazılır.
+Whisper hiçbir şey duymazsa (ör. `ornek_klip.py`'nin sinüs sesi) altyazı replik metninden tahmini zamanlamayla yazılır. Model indirilemezse (internet yok) de aynısı olur; kurgu durmaz.
 
 Bölüm başına düzen: `uretim/<seri>/bolumler/bolum-01/{senaryo.md, cekim-listesi.md, promptlar.md, kareler/, klipler/, kurgu.json}`;
 `kurgu.json` içinde `"klip": "klipler/01.mp4"` ve `"cikti": "bolum-01.mp4"`.

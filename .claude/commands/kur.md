@@ -16,6 +16,8 @@ Akış tekrar çalıştırılabilir: her adımda önce durumu kontrol et. Hazır
   çalıştırmadan önce ne kurulacağını tek cümleyle söyle ve **AskUserQuestion** ile onay al
   (seçenekler: "Evet, kur" / "Hayır, ben kurarım"). Onaysız kurulum yok.
 - Ücretli Higgsfield üretimi bu akışta **yok**. Yalnız ücretsiz okuma araçları kullanılır.
+- `scripts/` altındaki betiklerin hiçbiri ücretli API çağırmaz. `ornek_klip.py` yalnız yerel ffmpeg ile
+  renkli test klipleri üretir: ücretsiz, internet gerekmez, Higgsfield'a bağlanmaz. Çalıştırmak için onay gerekmez.
 - Windows'ta Claude Code komutları genelde Git Bash içinde çalıştırır. Yollarda `/` kullan.
 - Bu dosyada **PY** şu demek:
   - Windows: `.venv/Scripts/python.exe`
@@ -55,7 +57,7 @@ Sırayla, her eksik için: ne olduğunu tek cümleyle söyle → AskUserQuestion
 
 | Eksik | Windows | Mac |
 |---|---|---|
-| Python 3.10+ | `winget install --id Python.Python.3.12 -e` | `brew install python@3.12` |
+| Python 3.10+ | `winget install --id Python.Python.3.12 -e` | `brew install python@3.12` ya da uv (aşağıya bak) |
 | ffmpeg | `winget install --id Gyan.FFmpeg -e` | `brew install ffmpeg` |
 | Git | `winget install --id Git.Git -e` | `xcode-select --install` |
 
@@ -64,6 +66,28 @@ Sırayla, her eksik için: ne olduğunu tek cümleyle söyle → AskUserQuestion
 - winget sonrası komut hâlâ bulunamıyorsa: PATH yenilenmemiştir. Kullanıcıdan Claude Code'u kapatıp
   aynı klasörde yeniden açmasını iste, sonra "kur" yazsın; akış kaldığı yerden sürer.
 - ffmpeg kurulamazsa sorun değil: `requirements.txt` içindeki `imageio-ffmpeg` yedek ffmpeg getirir.
+
+### Python < 3.10 ise (ör. Mac sistem Python'u 3.9.6, Homebrew yok)
+
+AskUserQuestion ile sor: hangi yolla kuralım?
+- **Homebrew**: `brew install python@3.12` (brew yoksa önce https://brew.sh; şifreyi kullanıcı girer).
+- **uv** (Homebrew gerektirmez, şifre istemez): kurulum komutu için resmi sayfa
+  https://docs.astral.sh/uv/getting-started/installation/ ; sonra `uv python install 3.12`.
+- **python.org yükleyicisi**: https://www.python.org/downloads/ (kullanıcı indirip kurar).
+- Windows: `winget install --id Python.Python.3.12 -e`.
+
+Seçime göre kur. Sonra `.venv`'i yeni Python ile **yeniden oluştur** (eski `.venv` 3.9 ise sil) ve paketleri kur:
+```
+# uv ile
+uv venv --python 3.12 .venv
+uv pip install --python .venv/bin/python -r requirements.txt   # ya da: .venv/bin/python -m pip install -r requirements.txt
+
+# Homebrew / python.org ile
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+```
+Not: `uv venv` ile oluşan `.venv`'de pip olmayabilir; o durumda `uv pip install` kullan.
+Sonra doctor'ı PY ile tekrar çalıştır.
 
 ## 4. Sanal ortam ve paketler
 
@@ -119,11 +143,17 @@ Kalan krediyi kullanıcıya söyle. Böyle bir araç yoksa model listesi gibi ba
 
 ## 6. Deneme çıktısı (ücretsiz)
 
+**Bu adım ücretsizdir, onay gerektirmez; Higgsfield'a dokunmaz.** Yalnız yerel ffmpeg ve Python kullanır.
+Tek komut:
 ```
-PY scripts/ornek_klip.py
-PY scripts/kurgu.py examples/kurgu-ornek.json
+PY scripts/deneme.py
 ```
-İlk çalıştırma altyazı modelini indirdiği için birkaç dakika sürebilir; kullanıcıya söyle.
+(`ornek_klip.py` test kliplerini üretir, ardından `kurgu.py examples/kurgu-ornek.json` çalışır.
+Elle yapmak istersen bu iki komutu sırayla çalıştır.)
+
+`faster-whisper` altyazı modeli ücretsizdir ama ilk çalıştırmada internetten indirilir (birkaç yüz MB,
+birkaç dakika sürebilir; kullanıcıya söyle). İnternet yoksa deneme durmaz: altyazı senaryo metninden
+tahmini zamanlamayla yazılır.
 Çıktı: `examples/output/bolum.mp4`. Kullanıcıya dosyanın yerini söyle, açıp izlemesini öner
 (Windows: `start examples/output/bolum.mp4`, Mac: `open examples/output/bolum.mp4`).
 

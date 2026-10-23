@@ -1,4 +1,6 @@
-"""Ornek kurgu icin test klipleri uretir (ucretsiz, yerel ffmpeg ile).
+"""ÜCRETSİZ: yalnız yerel ffmpeg ile test klipleri üretir; internet ve Higgsfield kullanmaz, kredi harcamaz.
+
+Ornek kurgu icin test klipleri uretir. Onay gerektirmez.
 
 examples/kurgu-ornek.json'daki her `klip` icin 1080x1920, sesli (sinus), ustunde "KLİP N" yazan
 birkac saniyelik bir mp4 yazar: examples/klipler/01.mp4, 02.mp4 ...
@@ -77,7 +79,7 @@ def main() -> None:
         hedef.parent.mkdir(parents=True, exist_ok=True)
         klip_yaz(hedef, no, max(a.sure, cikis + 0.5), font)
         print(f" ✓ {hedef.relative_to(KOK) if hedef.is_relative_to(KOK) else hedef}")
-    print(f"\n{len(klipler)} klip hazir. Simdi: python scripts/kurgu.py examples/kurgu-ornek.json")
+    print(f"\n{len(klipler)} klip hazir (ucretsiz, yerel). Simdi: python scripts/kurgu.py examples/kurgu-ornek.json")
 
 
 if __name__ == "__main__":
