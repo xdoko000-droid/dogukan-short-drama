@@ -14,7 +14,7 @@ Hiçbir şey bilmene gerek yok. Claude soru sorarak kurar, sonra ilk dizine göt
    seç (ör. `C:\drama`).
 3. **Şunu yaz:**
    ```
-   https://github.com/xDoko00/dogukan-short-drama reposunu kur
+   https://github.com/xdoko000-droid/dogukan-short-drama reposunu kur
    ```
    Claude repoyu klonlar ve `/kur` akışını başlatır: Python, ffmpeg, Git, paketler ve Higgsfield girişi.
    Her kurulumdan önce sana sorar. Tarayıcıda giriş gibi senin yapman gerekenleri adım adım söyler.
@@ -93,7 +93,7 @@ PowerShell'i aç.
    PowerShell'i kapatıp aç. Kontrol: `ffmpeg -version`
 5. **Repoyu klonla ve paketleri kur** (sanal ortam önerilir):
    ```
-   git clone https://github.com/xDoko00/dogukan-short-drama.git
+   git clone https://github.com/xdoko000-droid/dogukan-short-drama.git
    cd dogukan-short-drama
    py -m venv .venv
    .venv\Scripts\Activate.ps1
@@ -116,7 +116,7 @@ Terminal'i aç.
    ```
 4. **Repoyu klonla ve paketleri kur** (sanal ortam önerilir):
    ```
-   git clone https://github.com/xDoko00/dogukan-short-drama.git
+   git clone https://github.com/xdoko000-droid/dogukan-short-drama.git
    cd dogukan-short-drama
    python3 -m venv .venv
    source .venv/bin/activate
@@ -235,14 +235,14 @@ with Claude Code and Higgsfield (via MCP or CLI).
 
 1. Install Claude Code: https://claude.com/claude-code
 2. Open Claude Code in an empty folder (on Windows, pick a short path without non-ASCII characters or spaces, e.g. `C:\drama`).
-3. Type: `Install the repo https://github.com/xDoko00/dogukan-short-drama`
+3. Type: `Install the repo https://github.com/xdoko000-droid/dogukan-short-drama`
    Claude clones it and runs the `/kur` setup wizard (Python, ffmpeg, Git, packages, Higgsfield login),
    asking before every install. Then run `/ilk-dizi` for a guided first series.
 
 ### Manual setup
 
 1. Install Git (required by Claude Code on Windows), Claude Code, Python 3.10+, ffmpeg.
-2. `git clone https://github.com/xDoko00/dogukan-short-drama.git`, then inside the folder create a virtual
+2. `git clone https://github.com/xdoko000-droid/dogukan-short-drama.git`, then inside the folder create a virtual
    environment (`.venv`) and run `pip install -r requirements.txt`.
 3. Open the folder in Claude Code (`claude`), approve the bundled `higgsfield` MCP server
    (`https://mcp.higgsfield.ai/mcp`), run `/mcp` → Authenticate.

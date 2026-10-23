@@ -33,7 +33,7 @@ Akış tekrar çalıştırılabilir: her adımda önce durumu kontrol et. Hazır
     ya da `brew install git` (onay al).
   - Sonra klonla:
     ```
-    git clone https://github.com/xDoko00/dogukan-short-drama.git
+    git clone https://github.com/xdoko000-droid/dogukan-short-drama.git
     ```
   - Klasörün tam yolunda ğ, ü, ş, ı, ö, ç ya da boşluk varsa uyar ve kısa bir yola klonlamayı öner
     (Windows: `C:\drama\`). Bkz. "Windows tuzakları".
