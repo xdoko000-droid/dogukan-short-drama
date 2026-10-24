@@ -23,6 +23,8 @@ Hiçbir şey bilmene gerek yok. Claude soru sorarak kurar, sonra ilk dizine göt
 Repoyu zaten klonladıysan klasörde Claude Code'u aç ve `/kur` yaz (ya da sadece "kur").
 
 <!-- SPONSOR_LINK -->
+**Higgsfield hesabın yok mu?** Buradan kayıt olabilirsin: https://higgsfield.ai/s/higgsfield-mcp-general-yt-dogukanlive-CTCNCG
+> Reklam / sponsorlu bağlantı: Bu repo ve tanıtım videosu Higgsfield iş birliğiyle hazırlandı. Bağlantı takip kodu içerir.
 
 > İçerikler kurgudur ve AI ile üretilir. Gerçek kişilere benzeyen yüz kullanılmaz.
 
@@ -247,6 +249,9 @@ with Claude Code and Higgsfield (via MCP or CLI).
 3. Type: `Install the repo https://github.com/xdoko000-droid/dogukan-short-drama`
    Claude clones it and runs the `/kur` setup wizard (Python, ffmpeg, Git, packages, Higgsfield login),
    asking before every install. Then run `/ilk-dizi` for a guided first series.
+
+No Higgsfield account yet? Sign up here: https://higgsfield.ai/s/higgsfield-mcp-general-yt-dogukanlive-CTCNCG
+(sponsored link — this kit and its video were made in partnership with Higgsfield; the link contains a tracking code).
 
 ### Manual setup
 

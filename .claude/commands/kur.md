@@ -129,8 +129,8 @@ Zorunlu ✗ kalmadıysa devam et.
   komutunu (onay alarak) çalıştır, sonra Claude Code'u yeniden açtır. Ayrıntı: `docs/05-higgsfield-mcp-kurulum.md`.
 
 **Higgsfield hesabı yoksa:**
-1. README'de `SPONSOR_LINK` yer tutucusunun olduğu yere bak. Orada bir Higgsfield bağlantısı varsa onu ver;
-   yoksa https://higgsfield.ai adresini ver.
+1. Kayıt için şu bağlantıyı ver: https://higgsfield.ai/s/higgsfield-mcp-general-yt-dogukanlive-CTCNCG
+   (sponsorlu bağlantı olduğunu belirt; README'deki `SPONSOR_LINK` satırıyla aynı).
 2. Kayıt olsun, kredili bir plan seçsin. Hangi planın uygun olduğunu kendisi seçer; sen yalnız bölüm başı
    tahmini söyle (Ekonomik ~140, Dengeli ~375, Premium ~950 kredi; 22 Eki 2026 fiyatı).
 3. Kazanç ya da gelir vaadi verme.
