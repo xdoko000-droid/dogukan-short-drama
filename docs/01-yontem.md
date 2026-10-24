@@ -89,7 +89,14 @@ Enerjinin çoğu kurgudan gelir:
 - "Bölüm X", "3 GÜN ÖNCE", "Devamı için takip et".
 - Son miks −15 LUFS.
 
-Betikler: `scripts/kurgu.py`, `scripts/altyazi.py`, `scripts/sfx.py`, `scripts/kare.py`, `scripts/zincir.py`, `scripts/doctor.py`, `scripts/ornek_klip.py`. Kullanım: `scripts/README.md`.
+### Kanca kontrolü
+
+Kurgudan sonra bölümün ilk 15 saniyesini `scripts/kanca_kes.py` ile ücretsiz kes ve Higgsfield'ın
+Virality Predictor modeline ver. Kanca puanı, izleyicinin kalma oranı ve dikkat haritası gelir. Puan düşükse
+açılışı kurguda sıkılaştır: doruk anını öne çek, düşüş anındaki çekimi kısalt. Kredisiz olduğu söyleniyor;
+önce ve sonra bakiyeye bak. Ayrıntı: `.claude/skills/short-drama-tr/references/kanca-kontrolu.md`.
+
+Betikler: `scripts/kurgu.py`, `scripts/kanca_kes.py`, `scripts/altyazi.py`, `scripts/sfx.py`, `scripts/kare.py`, `scripts/zincir.py`, `scripts/doctor.py`, `scripts/ornek_klip.py`. Kullanım: `scripts/README.md`.
 
 ## 8. Kurallar
 

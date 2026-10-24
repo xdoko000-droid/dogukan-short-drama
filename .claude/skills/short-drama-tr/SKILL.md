@@ -25,6 +25,9 @@ Ayrıntılar `references/` altında:
 | `references/klip-promptu.md` | Veo veya Seedance klip promptu yazılacaksa |
 | `references/kurgu-ses.md` | Kurgu, altyazı, ses efekti, müzik, son miks |
 | `references/maliyet.md` | Bütçe, tarif seçimi, kredi hesabı |
+| `references/kanca-kontrolu.md` | Kurgudan sonra ilk 15 sn'yi Virality Predictor ile ölçmek |
+
+Tek cümlelik istekten baştan onaylanan tavan içinde bölüm üretmek için: `/tek-prompt` (`.claude/commands/tek-prompt.md`).
 
 Doldurulacak şablonlar repo kökünde `templates/` altında. Tam bir örnek: `examples/cifte-davetiye/`.
 
@@ -38,6 +41,8 @@ Doldurulacak şablonlar repo kökünde `templates/` altında. Tam bir örnek: `e
    higgsfield generate cost <model> --prompt "..." [diğer parametreler]
    ```
    Kullanıcı "evet" demeden gönderme. Toplu gönderimde toplamı göster, tek onay al.
+   İstisna: `/tek-prompt` modunda kullanıcı baştan toplam bir tavanı açıkça onaylar; maliyet yine her işten
+   önce sorgulanır ama harcama tavanın içinde kaldıkça ayrıca sorulmaz.
 2. **Tavan.** Bölüm başında toplam kredi tavanı belirle (örnek: tahmin × 1.5). Harcamayı
    `uretim/<seri>/harcama.txt` dosyasına satır satır yaz (`etiket kredi`). Tavanı aşacaksan dur, sor.
 3. **Çift gönderim yok.** Bir iş zaman aşımına uğradıysa yeniden göndermeden önce iş listesine bak
@@ -178,6 +183,13 @@ Ayrıntı: `references/kurgu-ses.md`. Betikler `scripts/` altında; her biri `--
   Kare çıkarma: `scripts/kare.py`. Kare zinciri kesimi: `scripts/zincir.py`. Ortam kontrolü: `scripts/doctor.py`.
   Alanlar ve örnekler: `scripts/README.md`.
 
+### Kanca kontrolü
+
+Kurgudan sonra ilk ≤ 15 sn'yi `scripts/kanca_kes.py` ile ücretsiz kes, Virality Predictor'a (`brain_activity`) ver.
+Kanca puanını, kalma oranını ve dikkat haritasını özetle; puan düşükse 1–2 kurgu önerisi ver.
+Kredisiz olduğu söyleniyor ama doğrulanmadı: önce ve sonra bakiyeye bak, düşerse ücretli say ve onay iste.
+Ayrıntı: `references/kanca-kontrolu.md`.
+
 ## 8. Yayın
 
 `docs/04-tiktok-yayin.md`: başlık "Bölüm N | <kanca cümlesi>", açıklamada "Kurgudur, AI ile üretildi.",
@@ -196,6 +208,7 @@ AI etiketi açık, 3–5 hashtag, aynı seri için oynatma listesi.
 7. Her sonucu `result_url` alanından `bolumler/bolum-01/klipler/` altına indir (01.mp4, 02.mp4 …). İlk URL giriş görseli olabilir.
 8. Kurgu → kontrol kareleri → kullanıcıya göster → `kurgu.json` (`"cikti": "bolum-01.mp4"`) → `python scripts/kurgu.py uretim/<seri>/bolumler/bolum-01/kurgu.json --temiz`
    → son dosya `uretim/<seri>/bolumler/bolum-01/bolum-01.mp4`. Ara dosyalar `bolum-01/.kurgu-tmp/` altında.
+   Kanca kontrolü (isteğe bağlı): `references/kanca-kontrolu.md`.
 9. Yayın metni (başlık, açıklama, hashtag).
 
 Her adımın sonunda kısa durum ver: ne üretildi, ne harcandı, kalan tavan.

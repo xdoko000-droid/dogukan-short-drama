@@ -151,6 +151,10 @@ claude mcp add --transport http higgsfield https://mcp.higgsfield.ai/mcp
 ```
 Yedek yol (CLI), Windows notları ve sorun giderme: [docs/05-higgsfield-mcp-kurulum.md](docs/05-higgsfield-mcp-kurulum.md)
 
+> Claude masaüstü/web uygulamasında da aynı bağlantı kurulabilir: **Settings → Connectors → +** →
+> Ad `Higgsfield`, URL `https://mcp.higgsfield.ai/mcp` → **Add** → giriş yap. Ama bu repo dosya ve betik
+> kullandığı için asıl çalışma yeri **Claude Code**'dur.
+
 ### Kontrol
 
 ```
@@ -260,6 +264,8 @@ No Higgsfield account yet? Sign up here: https://higgsfield.ai/s/higgsfield-mcp-
    environment (`.venv`) and run `pip install -r requirements.txt`.
 3. Open the folder in Claude Code (`claude`), approve the bundled `higgsfield` MCP server
    (`https://mcp.higgsfield.ai/mcp`), run `/mcp` → Authenticate.
+   The same connector also works in the Claude desktop/web app (Settings → Connectors → + → URL above),
+   but this kit runs local files and scripts, so Claude Code is the main place to work.
 4. Say: "Let's make a mini drama." Claude scores ideas, plans the season, writes the episode,
    builds consistent characters, writes Veo 3.1 Lite / Seedance 2.5 prompts, shows the credit cost
    before every paid generation, and edits the final cut with word-by-word captions and sound design.
@@ -267,4 +273,4 @@ No Higgsfield account yet? Sign up here: https://higgsfield.ai/s/higgsfield-mcp-
 Budget recipes (Higgsfield credits, prices as of 22 Oct 2026): Economy ~140 / episode,
 Balanced ~375, Premium ~950. The project skill lives in `.claude/skills/short-drama-tr/`;
 setup and first-series flows in `.claude/commands/`. Docs are in Turkish.
-Code: MIT. Docs: CC BY 4.0. © 2026 Doğukan Doğan (DogukanLive). No income or earnings claims.
+Code: MIT. Docs: CC BY 4.0. © 2026 Doğukan Doğan (DogukanLive). No income claims.

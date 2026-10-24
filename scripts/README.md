@@ -17,6 +17,7 @@ Her betikte `--help` var.
 | `altyazi.py` | faster-whisper ile kelime zamanlaması; senaryo replikleriyle düzeltme; TikTok tarzı ASS (aktif kelime sarı) + SRT | `python scripts/altyazi.py output/bolum.mp4 --replikler replik.json` |
 | `sfx.py` | BOOM, WHOOSH, RISER, HIT ve BPM ayarlı gerilim müziği sentezler (harici ses dosyası yok) | `python scripts/sfx.py --cikti output/sfx --bpm 100` |
 | `zincir.py` | Kare zinciri: A klibinin sonunda B'nin ilk karesine en benzeyen kareyi SSIM ile bulur, kesim noktası önerir | `python scripts/zincir.py klipler/01.mp4 klipler/02.mp4` |
+| `kanca_kes.py` | **Ücretsiz.** Bölümün ilk N sn'sini (varsayılan 15) ayrı mp4 olarak keser; Virality Predictor ile kanca kontrolü için | `python scripts/kanca_kes.py bolum-01.mp4 --sn 15` |
 | `kare.py` | Klipten belirli saniyelerde (ya da `son`) PNG kare çıkarır | `python scripts/kare.py klipler/01.mp4 --sn 1.5 son` |
 | `ffmpeg_yol.py` | Ortak modül: libass'li ffmpeg'i seçer (yoksa imageio-ffmpeg), süre/LUFS ölçer | `python scripts/ffmpeg_yol.py` |
 

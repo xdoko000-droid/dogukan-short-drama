@@ -17,6 +17,7 @@ Claude her üretimden önce canlı maliyeti gösterir ve onayını ister.
 | GPT Image 2 | Karakter sayfası | 6.5 kr |
 | Soul 2.0 | Yüz, kıyafet | 0.12 kr |
 | Seedream 5 Pro | Görünüm düzenleme | 2.5 kr |
+| Virality Predictor (`brain_activity`) | Kanca kontrolü | Şu an kredisiz (doğrula: önce ve sonra bakiyeye bak) |
 
 Seedance 2.5 tek üretimde 30 sn'ye kadar çok kesme ve toplam 50'ye kadar referans alır (en fazla 30'u görsel).
 

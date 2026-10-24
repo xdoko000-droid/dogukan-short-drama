@@ -128,6 +128,10 @@ Zorunlu ✗ kalmadıysa devam et.
 - `/mcp` listesinde `higgsfield` hiç yoksa: `claude mcp add --transport http higgsfield https://mcp.higgsfield.ai/mcp`
   komutunu (onay alarak) çalıştır, sonra Claude Code'u yeniden açtır. Ayrıntı: `docs/05-higgsfield-mcp-kurulum.md`.
 
+Not: Kullanıcı Claude masaüstü/web uygulamasını soruyorsa aynı bağlantı orada da kurulabilir
+(Settings → Connectors → + → Ad `Higgsfield`, URL `https://mcp.higgsfield.ai/mcp`; ayrıntı `docs/05`).
+Ama bu repo dosya ve betik kullandığı için asıl çalışma yeri Claude Code'dur; kurulumu burada sürdür.
+
 **Higgsfield hesabı yoksa:**
 1. Kayıt için şu bağlantıyı ver: https://higgsfield.ai/s/higgsfield-mcp-general-yt-dogukanlive-CTCNCG
    (sponsorlu bağlantı olduğunu belirt; README'deki `SPONSOR_LINK` satırıyla aynı).

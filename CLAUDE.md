@@ -13,7 +13,8 @@ kod bloğunda göster, ne yaptığını tek cümleyle söyle.
 - Kurulum bittiyse ve "dizi yapalım", "ilk dizi" denirse `/ilk-dizi` akışını uygula: `.claude/commands/ilk-dizi.md`.
 - Kullanıcı teknik bilmiyor varsay. Komutları sen çalıştır. Onun yapması gerekenleri (tarayıcıda giriş,
   Claude'u yeniden açmak) adım adım söyle. Sistem yazılımı (winget/brew/pip) kurmadan önce onay al.
-- Değişmez kural aynen geçerli: **her ücretli üretim ve yeniden deneme öncesi maliyet gösterilir, onay alınır.**
+- Kullanıcı tek cümleyle tüm bölümü isterse ("aldatma temalı 1 bölüm, Ekonomik, tavan 200") `/tek-prompt` akışını uygula: `.claude/commands/tek-prompt.md`.
+- Değişmez kural aynen geçerli: **her ücretli üretim ve yeniden deneme öncesi maliyet gösterilir, onay alınır** (ya da `/tek-prompt`'ta baştan onaylanan tavan içinde kalınır).
 - Kurulum denemesi (`scripts/deneme.py` ya da `ornek_klip.py` + `kurgu.py`) **ücretsizdir, onay gerektirmez; Higgsfield'a dokunmaz.** Çekinmeden çalıştır.
 - Windows'ta önce aşağıdaki "Windows tuzakları"na bak.
 
@@ -48,9 +49,11 @@ kod bloğunda göster, ne yaptığını tek cümleyle söyle.
 
 ## Değişmez kurallar
 
-1. **Her ücretli üretimden önce maliyeti göster ve onay al.** MCP'nin maliyet aracı varsa onu kullan;
-   yoksa `higgsfield generate cost <model> ...`. Onaysız gönderim yok. Yeniden üretim ve filtre reti
-   sonrası yapılan deneme de ayrı maliyet onayı ister.
+1. **Ya her ücretli üretimden önce ayrı onay alınır, ya da `/tek-prompt` modunda kullanıcı baştan toplam bir
+   tavanı açıkça onaylar ve harcama bu tavanın içinde kalır.** Her iki durumda maliyet her işten önce sorgulanır:
+   MCP'nin maliyet aracı varsa onu kullan; yoksa `higgsfield generate cost <model> ...`. Onaysız gönderim yok.
+   Yeniden üretim ve filtre reti sonrası yapılan deneme de ayrı maliyet onayı ister; `/tek-prompt` modunda
+   ise yalnız onaylanan tavanın içinde kalıyorsa yapılır.
    İstisna: scripts/ altındaki betiklerin hiçbiri ücretli API çağırmaz; ücretli olan yalnız Higgsfield MCP/CLI üretim araçlarıdır.
 2. **Toplam tavan belirle** (bölüm başında, kullanıcıyla). Harcamayı `uretim/<seri>/harcama.txt`'ye yaz.
    Tavanı aşacaksan dur ve sor.
@@ -68,7 +71,7 @@ kod bloğunda göster, ne yaptığını tek cümleyle söyle.
 ```
 fikir (6 ölçüt) → SEZON.md → senaryo.md → cekim-listesi.md
 → varlıklar (yüz, kıyafet, karakter sayfası, mekân) → klip promptları (promptlar.md)
-→ maliyet + onay → üretim (≤4 eşzamanlı) → kurgu, ses, altyazı → kontrol kareleri → yayın metni
+→ maliyet + onay → üretim (≤4 eşzamanlı) → kurgu, ses, altyazı → kontrol kareleri → kanca kontrolü → yayın metni
 ```
 Her adımın sonunda kullanıcıya göster, onay al, sonra devam et.
 Yöntemin tamamı: `.claude/skills/short-drama-tr/SKILL.md`.
@@ -77,7 +80,7 @@ Yöntemin tamamı: `.claude/skills/short-drama-tr/SKILL.md`.
 
 | Yol | Ne işe yarar |
 |---|---|
-| `.claude/commands/` | `/kur` (kurulum sihirbazı) ve `/ilk-dizi` (rehberli ilk dizi) akışları |
+| `.claude/commands/` | `/kur` (kurulum sihirbazı), `/ilk-dizi` (rehberli ilk dizi) ve `/tek-prompt` (tek cümleden, onaylı tavan içinde otomatik bölüm) akışları |
 | `.claude/skills/short-drama-tr/` | Yöntemin çekirdeği (skill). `references/` altında ayrıntılar |
 | `templates/` | Doldurulacak şablonlar: SEZON, BOLUM-SENARYO, CEKIM-LISTESI, KARAKTER, MEKAN, prompt-kaliplari |
 | `examples/cifte-davetiye/` | Tam örnek: sezon planı, 1. bölüm senaryosu, kullanılan promptlar, kareler |
@@ -86,7 +89,7 @@ Yöntemin tamamı: `.claude/skills/short-drama-tr/SKILL.md`.
 | `docs/03-dersler.md` | Gerçek üretimden dersler (filtre, ses, kare zinciri) |
 | `docs/04-tiktok-yayin.md` | Yayın metni ve kuralları |
 | `docs/05-higgsfield-mcp-kurulum.md` | Higgsfield MCP ve CLI kurulumu |
-| `scripts/` | `doctor.py`, `kare.py`, `zincir.py`, `sfx.py`, `altyazi.py`, `kurgu.py`, `ornek_klip.py` (örnek kurgu için test klipleri), `deneme.py` (uçtan uca deneme), `ffmpeg_yol.py` (ortak modül). `ornek_klip.py` ve `deneme.py` ücretsizdir, onay gerektirmez; Higgsfield'a dokunmaz. Kullanım: `scripts/README.md` ve `--help` |
+| `scripts/` | `doctor.py`, `kare.py`, `zincir.py`, `sfx.py`, `altyazi.py`, `kurgu.py`, `ornek_klip.py` (örnek kurgu için test klipleri), `deneme.py` (uçtan uca deneme), `kanca_kes.py` (kanca kontrolü için ilk 15 sn), `ffmpeg_yol.py` (ortak modül). `ornek_klip.py` ve `deneme.py` ücretsizdir, onay gerektirmez; Higgsfield'a dokunmaz. Kullanım: `scripts/README.md` ve `--help` |
 | `examples/kurgu-ornek.json` | `scripts/kurgu.py` için örnek kurgu dosyası (çekim listesinin makine hâli) |
 | `uretim/` | Kullanıcının üretimleri (git'e girmez) |
 

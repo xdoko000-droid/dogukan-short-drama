@@ -127,7 +127,7 @@ SUBJECT: Defne: late twenties Turkish woman, long voluminous wavy dark chestnut 
 LOCATION MAP: Grand entrance hall of an old Bosphorus waterfront mansion (yali) at night. Crystal chandelier glowing above her in soft bokeh, the older woman in a cream suit blurred in the right background, dark wood and lamp light behind. Camera eye-level, 1.2 m from Defne. Same hall, same light throughout.
 FIRST FRAME: exactly the start image. Defne left of center, eyes toward frame right just past the lens.
 OPTICS / CAMERA: 85mm look, about 24 degrees field of view, slow steady push-in toward her eyes, about 10 percent over the shot.
-ACTING TASK: MOTIVE: she is about to learn the truth. GOAL: understand what she is reading. OBSTACLE: what she sees is impossible. TACTIC: no words, only the eyes.
+ACTING TASK: MOTIVE: she is about to discover the truth. GOAL: understand what she is reading. OBSTACLE: what she sees is impossible. TACTIC: no words, only the eyes.
 ACTION TIMING:
 0.0-1.2s: Defne's eyes drop slightly to something at chest height off-screen right, she reads.
 1.2-2.4s: her eyes widen sharply, a silent sharp inhale through the nose, lips stay closed.

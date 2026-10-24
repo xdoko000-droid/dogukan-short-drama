@@ -76,11 +76,19 @@ Higgsfield'a bağlı mısın? Kalan kredimi ve kullanılabilir video modellerini
 
 ## Yol 2: Claude masaüstü / claude.ai (sohbet için)
 
-1. https://higgsfield.ai/mcp sayfasında "Copy connector URL" ile adresi kopyala (`https://mcp.higgsfield.ai/mcp`).
-2. Claude'da **Customize → Connectors → Add custom connector**.
-3. Ad: `Higgsfield`, URL: kopyaladığın adres. Kaydet ve giriş yap.
+Claude masaüstü uygulamasında ya da claude.ai'de aynı Higgsfield bağlantısını kurabilirsin:
 
-Not: Bu repo dosya ve betik kullandığı için asıl çalışma ortamı **Claude Code**'dur.
+1. Claude'u aç → **Settings** → **Connectors**.
+2. **+** düğmesine bas.
+3. Ad: `Higgsfield`
+4. URL: `https://mcp.higgsfield.ai/mcp` (güncel adres: https://higgsfield.ai/mcp sayfasındaki "Copy connector URL").
+5. **Add** de.
+6. Açılan pencerede Higgsfield hesabınla giriş yap, izin ver.
+
+Menü adı sürüme göre farklı görünebilir: **Customize → Connectors** ya da **Add custom connector**.
+
+Not: Claude uygulamasında bağlantı sohbet için yeterlidir. Bu repo dosya ve betik (kurgu, altyazı,
+kare çıkarma) kullandığı için asıl çalışma yeri **Claude Code**'dur.
 
 ---
 

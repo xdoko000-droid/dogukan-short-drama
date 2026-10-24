@@ -70,6 +70,11 @@
 - **Sorun:** Anlatıcılı fotoroman (durağan görsel + dış ses) "yeterince gerçek değil" dedirtti.
 - **Çözüm:** Karakterler konuşmalı. Her konuşmalı çekimde tek kişi konuşur, dinleyenin ağzı kapalı.
 
+## Marka ve logo
+
+- Promptlarda ve ekranda marka ve logo adı kullanma. Kamera, film, moda ya da platform markası yerine
+  markasız tarif yaz: "cinema camera look", "35mm film look", "luxury handbag".
+
 ## Kısa özet
 
 1. Kıyafet güvenli.
