@@ -17,7 +17,7 @@ Her üretimden önce canlı maliyeti sor: MCP maliyet aracı ya da `higgsfield g
 | GPT Image 2 (`gpt_image_2`, karakter sayfası) | 6.5 kr | |
 | Soul 2.0 (`text2image_soul_v2`) | 0.12 kr | |
 | Seedream 5 Pro (`seedream_v5_pro`) | 2.5 kr | |
-| Virality Predictor (`brain_activity`) | şu an kredisiz (doğrula) | maliyet aracı desteklemiyor; önce/sonra bakiyeye bak |
+| Virality Predictor (`brain_activity`) | şu an kredisiz (24 Eki 2026 MCP testiyle doğrulandı; yine de bakiyeye bak) | maliyet aracı desteklemiyor; önce/sonra bakiyeye bak |
 
 Seedance 2.5: tek üretimde 30 sn'ye kadar çok kesme, 50'ye kadar referans.
 

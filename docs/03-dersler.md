@@ -82,7 +82,7 @@
   ```
   curl -X PUT -H "Content-Type: video/mp4" -H "If-None-Match: *" --data-binary @kanca.mp4 "<upload_url>"
   ```
-- Virality Predictor işi kuyrukta birkaç dakika bekleyebilir; sonucu `jobs_wait` ile ya da `virality_predictor` (action: preview) ile sonra açabilirsin. Gönderimde kredi düşmedi (24 Eki 2026 denemesi).
+- Virality Predictor işi kuyrukta birkaç dakika bekleyebilir; sonucu `jobs_wait` ile ya da `virality_predictor` (action: preview) ile sonra açabilirsin. Sonuç ~6 dk sürdü ve hiç kredi düşmedi (24 Eki 2026 denemesi). Puanlar: hook (ilk 0–3 sn), overall, viral_potential, brain_engagement, sustain (0–100) ve saniye saniye beyin bölgesi grafiği (HTML panel).
 - MCP'de `get_cost: true` ile maliyet önceden öğrenilebilir (ör. nano_banana_2 görsel: 1,5 kredi).
 
 ## Kısa özet
