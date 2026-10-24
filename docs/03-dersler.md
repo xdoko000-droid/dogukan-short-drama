@@ -75,6 +75,16 @@
 - Promptlarda ve ekranda marka ve logo adı kullanma. Kamera, film, moda ya da platform markası yerine
   markasız tarif yaz: "cinema camera look", "35mm film look", "luxury handbag".
 
+## Higgsfield MCP ile dosya yükleme
+
+- Yerel bir videoyu ya da görseli MCP'ye vermek için: `media_upload` → dönen `upload_url`'e PUT → `media_confirm`.
+- PUT isteğinde **`If-None-Match: *`** başlığı da gönderilmeli (imzalı adresin parçası). Yoksa yükleme reddedilir.
+  ```
+  curl -X PUT -H "Content-Type: video/mp4" -H "If-None-Match: *" --data-binary @kanca.mp4 "<upload_url>"
+  ```
+- Virality Predictor işi kuyrukta birkaç dakika bekleyebilir; sonucu `jobs_wait` ile ya da `virality_predictor` (action: preview) ile sonra açabilirsin. Gönderimde kredi düşmedi (24 Eki 2026 denemesi).
+- MCP'de `get_cost: true` ile maliyet önceden öğrenilebilir (ör. nano_banana_2 görsel: 1,5 kredi).
+
 ## Kısa özet
 
 1. Kıyafet güvenli.
