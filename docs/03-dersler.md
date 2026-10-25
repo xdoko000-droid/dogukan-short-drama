@@ -85,6 +85,11 @@
 - Virality Predictor işi kuyrukta birkaç dakika bekleyebilir; sonucu `jobs_wait` ile ya da `virality_predictor` (action: preview) ile sonra açabilirsin. Sonuç ~6 dk sürdü ve hiç kredi düşmedi (24 Eki 2026 denemesi). Puanlar: hook (ilk 0–3 sn), overall, viral_potential, brain_engagement, sustain (0–100) ve saniye saniye beyin bölgesi grafiği (HTML panel).
 - MCP'de `get_cost: true` ile maliyet önceden öğrenilebilir (ör. nano_banana_2 görsel: 1,5 kredi).
 
+## Kanca (Virality Predictor deneyi)
+
+- Aynı açılış kurguyla 24 → 30, ek aksiyon klibiyle 32 oldu. Ayrıntı: `.claude/skills/short-drama-tr/references/kanca-kontrolu.md`.
+- Kural: ilk karede hareket ve duygu; ilk 2 sn'de "Bölüm X" yazısı ve sessizlik yok.
+
 ## Kısa özet
 
 1. Kıyafet güvenli.
