@@ -21,6 +21,15 @@ Darbeler arası 13–30 sn.
 
 **Yüz kuralı:** <Hangi önemli yüz geç gösterilecek? Önce sırt/eller/gözler, yüz hangi saniyede?>
 
+## Karakterler (bu bölüm)
+
+| Karakter | Ne istiyor | Kusuru → bu bölümde ödettiği bedel | Konuşma biçimi |
+|---|---|---|---|
+| <Kahraman> | <…> | <ör. gururu → yardımı reddeder, kartı kaybeder> | <kısa, soğuk; hiç özür dilemez> |
+| <Yan karakter> | <kendi gündemi, kahramandan bağımsız> | <…> | <…> |
+
+Kartlardaki "Ne istiyor" ve "Kusuru" alanlarıyla aynı olsun (`templates/KARAKTER.md`).
+
 ## Sahneler
 
 ### Sahne 1 — <mekân> — <gece/gündüz> (<Kanca / Bağlam / Tırmanış / Cliffhanger>)
@@ -42,6 +51,13 @@ Darbeler arası 13–30 sn.
 - [ ] Yazılı nesnenin yazılı yüzü kameraya dönmüyor
 - [ ] Cliffhanger cevabı göstermiyor
 - [ ] Kıyafetler filtre güvenli (kol/yaka kapalı, askı yok)
+- [ ] Replikler isimsiz okununca kimin olduğu belli (her karakterin kendi sözcükleri ve ritmi)
+- [ ] "AI kokusu" yok: klişe ("kalbim paramparça"), duyguyu söyleyen ("çok kızgınım"), olanı açıklayan replik yok
+- [ ] Duygu yüzde ve eylemde, bir nesneye bağlı (kartı sıkan parmaklar); iç ses ya da anlatıcı yok
+- [ ] Yan karakterin kendi gündemi var, yalnız bilgi taşımıyor
+- [ ] Kahramanın kusuru bu bölümde gerçek bir bedel ödetiyor
+- [ ] İsimler bilinçli seçildi: modelin her hikâyede verdiği varsayılan isim değil; iki ad birbirine benzemiyor
+- [ ] Sahne tarifi ve repliklerde etiket, süre notu, kontrol işareti yok (promptlara bunlar taşınır)
 
 ## Yayın metni
 

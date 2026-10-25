@@ -32,7 +32,7 @@ Blok sırası:
 ```
 <N> seconds, one continuous shot, real time, vertical 9:16.
 SCENE: 1–2 cümle: ne oluyor, nerede, ne zaman.
-SUBJECT: <karakter tarifi, sabit>. <Ad> <SES tarifi, sabit>. Face, hair and outfit 100% match the first frame.
+SUBJECT: <karakter tarifi, sabit>. <Ad> <SES tarifi, sabit>. The start image defines <Ad>'s face, hair and outfit; keep them unchanged.
 LOCATION MAP: <mekân tarifi, sabit>. Kamera nerede, kime ne kadar uzak. Same place, same light throughout.
 FIRST FRAME: exactly the start image. Kim nerede (x/y %), nereye bakıyor.
 OPTICS / CAMERA: lens görünümü, yaklaşık görüş açısı (derece), hareket (çok yavaş push-in / locked-off).
@@ -43,6 +43,7 @@ ACTION TIMING:
 3.0-N s: sessizlik; ağız kapalı, tepki.
 PHYSICS: saç, kumaş, eşya nasıl davranır.
 <EŞYA bloğu, sabit>
+DIALOGUE LANGUAGE: Turkish, native Istanbul accent, natural everyday speech. Every quoted line is spoken in Turkish, word for word.
 AUDIO: ortam sesi. Only <Ad>'s voice.
 LOOK: <stil bloğu, sabit>
 POSITIVE LOCKS: only the quoted line is spoken, once; lips move only during the quoted line; clean picture without on-screen text or subtitles; ambient sound only, without music; framing stays identical to the first frame.
@@ -79,13 +80,15 @@ Blok sırası (yalnız gerekenleri kullan):
 ```
 SCENE CONTEXT: 2–4 cümle, duygusal dönüş dahil. Kim nerede.
 ACTIVE REFERENCES:
-@Defne: yaş, rol, şu anki durumu, elindeki eşya, ses tarifi. Face, hair and outfit 100% match the reference.
-@Nermin: …
-@YaliHol: the room is identical to the reference.
+@Defne defines Defne's face, hair, body and outfit; keep all of it unchanged. Do not take the grey backdrop, the panel borders or the multi-view layout. Defne: yaş, rol, şu anki durumu, elindeki eşya, ses tarifi.
+@Nermin defines …; aynı dışlama cümlesi.
+@YaliHol defines the room, its furniture and its light only. Do not use any person in the image.
+(Zincirde isteğe bağlı) @<Kare> defines only where everyone stands and the light at the start. Do not take faces or clothing from it.
 LOCATION MAP: ön plan / orta plan / arka plan, kapılar, ışık kaynakları, kamera yeri.
 FIRST FRAME / BLOCKING: ilk karede kim nerede, nereye bakıyor.
 FORMAT MODE: timed multishot; cuts only at the stated seconds, the camera does not cut on its own.
 OPTICS: her kesim için çekim boyu ve görüş açısı (derece); no drift mid-segment.
+DIALOGUE LANGUAGE: Turkish, native Istanbul accent, natural everyday speech. Every quoted line is spoken in Turkish, word for word.
 ACTION TIMING:
 0.0s to 2.5s — …
 2.5s HARD CUT
@@ -106,6 +109,7 @@ Notlar:
 - 30 sn'lik tek üretim tam bir duygusal yay taşıyabilir: kanca + bağlam ya da yüzleşmenin tamamı.
 - Kesim başına 2–4 sn hedefle; kurgu ritmine zaten yakın gelir.
 - Görüş açısı rehberi (yaklaşık): aşırı yakın ~15°, yakın ~24°, orta yakın ~30°, orta ~40°, geniş ~60°.
+- Her `@ad` bir rol cümlesi ve dışlama cümlesiyle girer; ACTION TIMING ve PERFORMANCE'ta etiket değil isim yazılır. Ayrıntı: `templates/prompt-kaliplari.md` → "Referans rolleri ve dil satırı".
 
 ## Kare zinciri (Veo yolu)
 
@@ -121,6 +125,7 @@ Bir sahne birden fazla Veo klibi ise:
 - Konuşan sağdaysa yüzü x %55, bakışı lensin hemen soluna; karşısındaki solda x %45, bakışı lensin hemen sağına.
 - Karşı tarafın saçı/omzu ön planda flu kenar olarak görünsün (ekranın %10–12'si).
 - Aynı kişinin bütün replikleri **aynı başlangıç karesinden**. Kurguda iki replik arası kesme fark edilmez.
+- İki kişinin taraf ve bakış satırları her klipte aynen kopyalanır: `templates/prompt-kaliplari.md` → "10. İki karakterli sahne".
 
 ## Revizyon
 
@@ -129,3 +134,5 @@ Sorunu somut adlandır, yalnız onu değiştir:
 - "Kamera savruldu" → `smooth steady camera, no whip pans`, handheld ifadesini sil.
 - "İsim yanlış duyuldu" → repliği kısalt, ünsüzü net kelime seç, efekti replik altında kıs.
 - NSFW reti → kıyafeti kapat, "leans in close", "crushes", "slip dress" gibi ifadeleri çıkar, bitiş karesini kaldır.
+
+Deneme bütçesi, durma kuralı ve kare zinciri hata tablosu: `templates/prompt-kaliplari.md` → "Sorun giderme".
