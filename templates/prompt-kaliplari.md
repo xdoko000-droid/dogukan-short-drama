@@ -75,7 +75,7 @@ Ayarlar: `veo3_1_lite`, süre 4/6/8, 9:16, ses açık, başlangıç karesi. Biti
 ```
 <N> seconds, one continuous shot, real time, vertical 9:16.
 SCENE: <Time, place. What happens in one or two sentences.>
-SUBJECT: <KARAKTER sabit bloğu> <SES sabit bloğu> Face, hair and outfit 100% match the first frame.
+SUBJECT: <KARAKTER sabit bloğu> <SES sabit bloğu> The start image defines <Ad>'s face, hair and outfit; keep them unchanged.
 LOCATION MAP: <LOCATION sabit bloğu>. Camera <eye-level>, <1.2> m from <Ad>. Same place, same light throughout.
 FIRST FRAME: exactly the start image. <Ad> <position>, eyes <direction>.
 OPTICS / CAMERA: <85mm look>, about <24> degrees field of view, <locked framing with a very slow push-in of about 5 percent | locked-off, no camera movement>. Smooth steady camera, no whip pans.
@@ -86,6 +86,7 @@ ACTION TIMING:
 <t>-<N>s: silence; <reaction, lips closed>.
 PHYSICS: <hair, fabric, prop behaviour>.
 <EŞYA sabit bloğu, varsa>
+DIALOGUE LANGUAGE: Turkish, native Istanbul accent, natural everyday speech. Every quoted line is spoken in Turkish, word for word.
 AUDIO: <room tone, one or two ambient sounds>. Only <Ad>'s voice.
 LOOK: <LOOK sabit bloğu>
 POSITIVE LOCKS: only the quoted line is spoken, once; lips move only during the quoted line; clear diction, every final consonant pronounced; restrained emotion, no sobbing; clean picture without on-screen text or subtitles; ambient sound only, without music; framing stays identical to the first frame.
@@ -151,7 +152,7 @@ POSITIVE LOCKS: the same characters, outfits, props and room in every segment; s
 - **Ne kadarı korunacak, açık yaz:** "keep all of it unchanged" (tamamı), "only the coat and the scar; the hair may change" (yalnız sayılan parçalar), "mood and colours only" (yalnız hava). Görünüm değişikliğinde yalnız değişen parçayı serbest bırak.
 - **`@<Kare>` (önceki klibin son karesi) kimlik kaynağı değildir.** Yalnız konum ve ışık verir; yüz her zaman karakter sayfasından gelir. Bu satır yalnız kare zincirinde kullanılır, yoksa sil.
 - **ACTION TIMING ve PERFORMANCE satırlarında `@ad` değil isim yazılır** (`Defne says`, `@Defne says` değil). Etiket cümlenin öznesi olunca model aynı kişiyi iki kez çizebiliyor. Etiketler yalnız ACTIVE REFERENCES'ta durur.
-- **DIALOGUE LANGUAGE satırı replikten önce gelir.** Dil, aksan, konuşma biçimi; replik yine tırnakta. Veo klibinde de aynı satırı AUDIO'dan önce kullanabilirsin.
+- **DIALOGUE LANGUAGE satırı replikten önce gelir.** Dil, aksan, konuşma biçimi; replik yine tırnakta. Veo klibinde (§8) aynı satır AUDIO'dan önce gelir.
 - **`{}` söz dizimi:** Seedance 2.5 repliği `{…}`, müziği `(…)`, efekti `<…>`, altyazıyı `【…】` içinde de okur. Bu kit tırnak kullanır: bizim kalıplarda `<…>` doldurulacak alan demektir, gönderilen promptta `<…>` kalmamalı. İki biçimi aynı promptta karıştırma. "No music" ifadesini `(…)` içine yazma; parantez müzik kanalı sayılır, düz cümle olarak AUDIO satırında kalsın.
 - **Okunabilen her söz seslendirilir.** `a look that says "…"` gibi alt metin cümleleri sesli çıkar. Duyguyu eylemle yaz (`her jaw sets, her eyes hold`), replik yalnız ACTION TIMING'de tırnakta dursun.
 
