@@ -59,7 +59,7 @@ Photorealistic live action, 35mm film grain, muted tones.
 
 Referanslar: `@<Ad>` (kimlik), mekân ya da önceki kare (ışık ve renk).
 ```
-Use image 1 (character sheet) for the person's identity, 1:1 face similarity. Use image 2 only for the location, colours and light. Create ONE full-frame vertical 9:16 cinematic film still, no panels, no borders.
+Use image 1 (character sheet) for the person's identity, 1:1 face similarity. Do not take the grey backdrop, the panel borders or the multi-view layout from image 1. Use image 2 only for the location, colours and light. Do not use any person from image 2. Create ONE full-frame vertical 9:16 cinematic film still, no panels, no borders.
 SUBJECT: <KARAKTER sabit bloğu>. <what they hold, how>.
 FIRST FRAME / BLOCKING: <shot size, from where to where>. <Ad> <left/right> of centre (face at x <…>%, eyes at y <…>% of the frame), body <three-quarter turned toward frame left/right>, eyes <just left/right of the lens> toward someone off-screen <left/right>. <Out-of-focus edge of the other person fills the far left/right 10–12% of the frame.>
 LOCATION: <LOCATION sabit bloğu>.
@@ -106,9 +106,10 @@ Ayarlar: `seedance_2_5`, mod `omni_reference`, 720p, ses açık, 9:16. Yalnız b
 SCENE CONTEXT: <Place, time. Who is where. What happens and where the emotion turns, 2–4 sentences.>
 
 ACTIVE REFERENCES:
-@<Ad1>: <age>, <role>, <state now>, <prop>, <SES sabit bloğu>. Face, hair and outfit 100% match the reference.
-@<Ad2>: <…>. Face, hair and outfit 100% match the reference.
-@<Mekan>: the room is identical to the reference.
+@<Ad1> defines <Ad1>'s face, hair, body and outfit; keep all of it unchanged. Do not take the grey backdrop, the panel borders or the multi-view layout. <Ad1>: <age>, <role>, <state now>, <prop>, <SES sabit bloğu>.
+@<Ad2> defines <Ad2>'s face, hair, body and outfit; keep all of it unchanged. Do not take the grey backdrop, the panel borders or the multi-view layout. <Ad2>: <…>.
+@<Mekan> defines the room, its furniture and its light only. Do not use any person in the image.
+@<Kare> defines only where everyone stands and the light at the start. Do not take faces or clothing from it; identity comes from the character references above.
 
 LOCATION MAP: <foreground / midground / background, doors, windows, light sources, camera positions>.
 
@@ -117,6 +118,8 @@ FIRST FRAME / BLOCKING: <who is where, screen left/right, facing where, eye-line
 FORMAT MODE: timed multishot, <N> seconds total; cuts only at the stated seconds, the camera does not cut on its own.
 
 OPTICS: <per segment: shot size + field of view in degrees>; no drift mid-segment.
+
+DIALOGUE LANGUAGE: Turkish, native Istanbul accent, natural everyday speech. Every quoted line is spoken in Turkish, word for word.
 
 ACTION TIMING:
 0.0s to 2.5s — <hook: the peak moment, close-up, line or reaction>
@@ -142,6 +145,31 @@ STYLE: photorealistic live action, 35mm film grain, <colour mood>, vertical 9:16
 POSITIVE LOCKS: the same characters, outfits, props and room in every segment; screen direction and eye-lines stay consistent across cuts; listeners keep their mouths closed; <prop shows only its blank back>; clean picture without on-screen text or subtitles.
 ```
 
+### Referans rolleri ve dil satırı
+
+- **Her `@ad` bir rol cümlesiyle girer:** neyi verdiği (kimlik, kıyafet, mekân, ışık, konum) ve aynı cümlede neyi **vermediği**. Dışlama yazılmazsa referansın başka parçası sızar: karakter sayfasının gri fonu set olur, mekân görselindeki kişi sahneye girer.
+- **Ne kadarı korunacak, açık yaz:** "keep all of it unchanged" (tamamı), "only the coat and the scar; the hair may change" (yalnız sayılan parçalar), "mood and colours only" (yalnız hava). Görünüm değişikliğinde yalnız değişen parçayı serbest bırak.
+- **`@<Kare>` (önceki klibin son karesi) kimlik kaynağı değildir.** Yalnız konum ve ışık verir; yüz her zaman karakter sayfasından gelir. Bu satır yalnız kare zincirinde kullanılır, yoksa sil.
+- **ACTION TIMING ve PERFORMANCE satırlarında `@ad` değil isim yazılır** (`Defne says`, `@Defne says` değil). Etiket cümlenin öznesi olunca model aynı kişiyi iki kez çizebiliyor. Etiketler yalnız ACTIVE REFERENCES'ta durur.
+- **DIALOGUE LANGUAGE satırı replikten önce gelir.** Dil, aksan, konuşma biçimi; replik yine tırnakta. Veo klibinde de aynı satırı AUDIO'dan önce kullanabilirsin.
+- **`{}` söz dizimi:** Seedance 2.5 repliği `{…}`, müziği `(…)`, efekti `<…>`, altyazıyı `【…】` içinde de okur. Bu kit tırnak kullanır: bizim kalıplarda `<…>` doldurulacak alan demektir, gönderilen promptta `<…>` kalmamalı. İki biçimi aynı promptta karıştırma. "No music" ifadesini `(…)` içine yazma; parantez müzik kanalı sayılır, düz cümle olarak AUDIO satırında kalsın.
+- **Okunabilen her söz seslendirilir.** `a look that says "…"` gibi alt metin cümleleri sesli çıkar. Duyguyu eylemle yaz (`her jaw sets, her eyes hold`), replik yalnız ACTION TIMING'de tırnakta dursun.
+
+## 10. İki karakterli sahne — karşı çekim tutarlılığı
+
+§9'un FIRST FRAME / BLOCKING bölümünün yerine geçer. Veo'da her karşı çekim ayrı klip olur; BETWEEN THEM ve REVERSE ANGLES satırları o sahnenin her klibine **aynen kopyalanır**.
+```
+FIRST FRAME / BLOCKING: two characters in frame.
+<Ad1> — <one visible marker: hair, outfit colour>. Screen <left>, face at x <30>%, eyes at y <38>% of the frame. Midground. Body three-quarter turned toward <Ad2>, screen <right>. <Pose>. Eyes on <Ad2>'s eyes. <Contact: left hand on the chair back>. State: <controlled, cold>.
+<Ad2> — <one visible marker>. Screen <right>, face at x <70>%, eyes at y <42>% of the frame. <Depth: half a metre behind Ad1>. Body three-quarter turned toward <Ad1>, screen <left>. <Pose>. Eyes <drop to the card, come back to Ad1>. <Contact>. State: <cornered, holding back>.
+BETWEEN THEM: about <1.5> m apart. <Ad1> stays screen <left> and <Ad2> stays screen <right> in every shot. Neither crosses the centre line of the frame; the camera never crosses the line between them. Empty space between them <narrows as Ad1 steps in>.
+REVERSE ANGLES: over <Ad1>'s <right> shoulder onto <Ad2>, <Ad2> faces screen <left>. Over <Ad2>'s <left> shoulder onto <Ad1>, <Ad1> faces screen <right>. Same distance, same light direction, same props in the same hands in every angle.
+CONTINUITY LOCKS: <who holds what, in which hand>; <what stays where>; <hair and fabric state>.
+```
+- İlk görünüşte isim + tek görünür işaret (`Defne — ivory gown`) yazmak iki karakterin yer değiştirmesini azaltır.
+- 9:16'da iki kişiyi aynı karede uzun tutma; yüzler küçülür. İkili kareyi kurmak için kullan, sonra karşı çekimlere kes. Karşı çekimde diğer kişinin bulanık kenarı karenin dış %10–12'sinde kalır (§7).
+- Her konuşmalı segmentte tek kişi konuşur, dinleyenin ağzı kapalı (POSITIVE LOCKS).
+
 ---
 
 ## Hızlı kontrol (göndermeden önce)
@@ -153,3 +181,36 @@ POSITIVE LOCKS: the same characters, outfits, props and room in every segment; s
 - [ ] Müzik yok, ekranda yazı yok yazıyor mu?
 - [ ] Kıyafet filtre güvenli mi?
 - [ ] Maliyet gösterildi, onay alındı mı?
+- [ ] Her `@ad`ın rol cümlesi ve "Do not take / Do not use" dışlaması var mı? ACTION TIMING'de etiket değil isim mi yazıyor?
+- [ ] Replikten önce DIALOGUE LANGUAGE satırı var mı?
+- [ ] İki karakterli sahnede taraf (screen left/right) ve bakış yönü her klipte aynı mı (§10)?
+- [ ] Bu çekimin deneme bütçesi ve "yeterince iyi" çıtası yazıldı mı (aşağıda)?
+
+---
+
+## Sorun giderme
+
+Maliyet kuralı değişmez: her yeniden deneme de ayrı maliyet onayı ister. Aşağıdakiler onayın yerine geçmez, neyi onaylayacağını belirler.
+
+**Deneme bütçesi.** İlk üretimden önce çekim başına bir sayı yaz: Veo tek çekim en fazla 3, Seedance çok kesmeli en fazla 2 ücretli deneme. Filtre reti bütçeyi doldurmaz ama aynı promptla yeniden gönderilmez; önce kıyafeti ve ifadeyi düzelt (`docs/03-dersler.md` → "Filtre (NSFW) retleri").
+
+**"Yeterince iyi" çıtası.** Çekimin ana işini bir cümleyle yaz: replik doğru kişide, doğru ve net; yüz tanınıyor; bakış yönü doğru. Bu tutuyorsa arka plan ayrıntısı, kumaş kıvrımı gibi ikincil kusurlar yayına girer; gerekirse kurguda kısalt. Çıta yazılmazsa sessizce "kusursuz"a döner ve hiçbir bütçe yetmez.
+
+**Durma kuralı.** Bütçenin yarısında aynı kusur sürüyorsa yeniden üretme, yolu değiştir: çekimi ikiye böl, Seedance yerine Veo tek çekime geç, referansı değiştir ya da çekimi kurgudan çıkar (davetiye kartı örneği: `docs/03-dersler.md` → "Yazılı nesneler"). Denemeler arasında **tek şeyi** değiştir ve `harcama.txt`'ye bir satır yaz: ne değişti, sonuç ne oldu. İki satırda aynı kusur varsa promptu yeniden yaz.
+
+**Kare zinciri hataları** (her satırda tek değişiklik):
+
+| Belirti | Olası neden | Değiştir |
+|---|---|---|
+| Kimlik kayıyor, zincir uzadıkça yüz başkalaşıyor | Önceki klibin son karesi kimlik kaynağı olmuş | Kimliği karakter sayfasından (`@<Ad>`) yeniden al; son kare yalnız konum ve ışık verir (§9). 2–3 halkadan sonra zinciri karakter sayfasından yeniden başlat |
+| Eksen dönüyor, birleşimde karakterler taraf değiştiriyor | Ekran yönü yazılmamış | Tarafı ve bakış yönünü açık yaz; §10'un BETWEEN THEM satırını her klipte aynen kopyala |
+| Replik tekrar ediliyor | Önceki klipte söylenen replik promptta kalmış | Söyleneni promptdan çıkar, "she has already said it" yaz; tırnakta yalnız yeni replik kalsın |
+| Eylem baştan başlıyor | Biten eylem bitmiş olarak yazılmamış | Bitmiş hâli yaz ("the door already stands open"), yalnız sonrasını iste |
+| Sonraki an erken geliyor | Sonraki klibin eylemi bu prompta sızmış | Bir klip, bir an; gelecek eylemleri sil |
+| Eşya önceki klibe uymuyor | Eşyanın kimde, nerede, hangi durumda olduğu yazılmamış | CONTINUITY LOCKS'a eşya satırı ekle |
+| Gri fon ya da referanstaki başka kişi sahneye giriyor | Dışlama cümlesi yok | §9'daki rol + "Do not take / Do not use" cümlesini ekle |
+| Birleşimde kare zıplıyor (Veo bitiş karesi) | Model bitiş karesini birkaç kare aşıyor | `scripts/zincir.py` ile en yakın karede kes (`docs/03-dersler.md` → "Veo bitiş karesi") |
+
+---
+
+Bu bölümdeki teknikler (referans rolleri, dil satırı, iki karakterli yerleşim, sorun giderme) [OSideMedia/higgsfield-ai-prompt-skill](https://github.com/OSideMedia/higgsfield-ai-prompt-skill) (MIT, © 2026 O-Side Media) çalışmasından uyarlanmıştır.

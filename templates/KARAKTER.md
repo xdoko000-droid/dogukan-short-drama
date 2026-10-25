@@ -6,6 +6,8 @@
 | Yaş | <…> |
 | Rol | <ana karakter / karşı karakter / yan> |
 | Ne istiyor | <…> |
+| Kusuru | <bedel ödeten zaafı: gurur, kıskançlık, sır…> |
+| Konuşma biçimi | <sözcükler, ritim, takıntılı bir laf; replikler isimsiz okununca tanınsın> |
 | Baskı altında | <…> |
 | Bölümler | <…> |
 
