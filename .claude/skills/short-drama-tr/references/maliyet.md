@@ -56,7 +56,9 @@ tavanı aşacaksa gönderme. Örnek:
 b1-K1 2
 b1-V1 9
 b1-V2 6
+b1-V2b 6 # lens satırı → bakış düzeldi
 ```
+`#` sonrası not yeniden denemede ne değiştiğini yazar; toplama girmez.
 
 ## Hatırlatma
 

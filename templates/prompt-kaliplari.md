@@ -153,7 +153,7 @@ POSITIVE LOCKS: the same characters, outfits, props and room in every segment; s
 - **`@<Kare>` (önceki klibin son karesi) kimlik kaynağı değildir.** Yalnız konum ve ışık verir; yüz her zaman karakter sayfasından gelir. Bu satır yalnız kare zincirinde kullanılır, yoksa sil.
 - **ACTION TIMING ve PERFORMANCE satırlarında `@ad` değil isim yazılır** (`Defne says`, `@Defne says` değil). Etiket cümlenin öznesi olunca model aynı kişiyi iki kez çizebiliyor. Etiketler yalnız ACTIVE REFERENCES'ta durur.
 - **DIALOGUE LANGUAGE satırı replikten önce gelir.** Dil, aksan, konuşma biçimi; replik yine tırnakta. Veo klibinde (§8) aynı satır AUDIO'dan önce gelir.
-- **`{}` söz dizimi:** Seedance 2.5 repliği `{…}`, müziği `(…)`, efekti `<…>`, altyazıyı `【…】` içinde de okur. Bu kit tırnak kullanır: bizim kalıplarda `<…>` doldurulacak alan demektir, gönderilen promptta `<…>` kalmamalı. İki biçimi aynı promptta karıştırma. "No music" ifadesini `(…)` içine yazma; parantez müzik kanalı sayılır, düz cümle olarak AUDIO satırında kalsın.
+- **`{}` söz dizimi:** Seedance 2.5 repliği `{…}`, müziği `(…)`, efekti `<…>` içinde de okur. Bu kit tırnak kullanır: bizim kalıplarda `<…>` doldurulacak alan demektir, gönderilen promptta `<…>` kalmamalı. İki biçimi aynı promptta karıştırma. "No music" ifadesini `(…)` içine yazma; parantez müzik kanalı sayılır, düz cümle olarak AUDIO satırında kalsın.
 - **Okunabilen her söz seslendirilir.** `a look that says "…"` gibi alt metin cümleleri sesli çıkar. Duyguyu eylemle yaz (`her jaw sets, her eyes hold`), replik yalnız ACTION TIMING'de tırnakta dursun.
 
 ## 10. İki karakterli sahne — karşı çekim tutarlılığı
@@ -183,7 +183,7 @@ CONTINUITY LOCKS: <who holds what, in which hand>; <what stays where>; <hair and
 - [ ] Kıyafet filtre güvenli mi?
 - [ ] Maliyet gösterildi, onay alındı mı?
 - [ ] Her `@ad`ın rol cümlesi ve "Do not take / Do not use" dışlaması var mı? ACTION TIMING'de etiket değil isim mi yazıyor?
-- [ ] Replikten önce DIALOGUE LANGUAGE satırı var mı?
+- [ ] Replikten önce DIALOGUE LANGUAGE satırı var mı? (Veo: AUDIO'dan önce)
 - [ ] İki karakterli sahnede taraf (screen left/right) ve bakış yönü her klipte aynı mı (§10)?
 - [ ] Bu çekimin deneme bütçesi ve "yeterince iyi" çıtası yazıldı mı (aşağıda)?
 
@@ -191,21 +191,21 @@ CONTINUITY LOCKS: <who holds what, in which hand>; <what stays where>; <hair and
 
 ## Sorun giderme
 
-Maliyet kuralı değişmez: her yeniden deneme de ayrı maliyet onayı ister. Aşağıdakiler onayın yerine geçmez, neyi onaylayacağını belirler.
+Maliyet kuralı değişmez: her yeniden deneme de ayrı maliyet onayı ister (ya da `/tek-prompt` tavanı içinde kalır). Aşağıdakiler onayın yerine geçmez, neyi onaylayacağını belirler.
 
-**Deneme bütçesi.** İlk üretimden önce çekim başına bir sayı yaz: Veo tek çekim en fazla 3, Seedance çok kesmeli en fazla 2 ücretli deneme. Filtre reti bütçeyi doldurmaz ama aynı promptla yeniden gönderilmez; önce kıyafeti ve ifadeyi düzelt (`docs/03-dersler.md` → "Filtre (NSFW) retleri").
+**Deneme bütçesi.** İlk üretimden önce çekim başına bir sayı yaz: Veo tek çekim en fazla 3, Seedance çok kesmeli en fazla 2 ücretli deneme. Seedance'te ilk deneme tutmazsa ikinciyi göndermeden dur, promptu ve referansları gözden geçir; ikinci de tutmazsa durma kuralına geç. Filtre reti bütçeyi doldurmaz ama aynı promptla yeniden gönderilmez; önce kıyafeti ve ifadeyi düzelt (`docs/03-dersler.md` → "Filtre (NSFW) retleri").
 
 **"Yeterince iyi" çıtası.** Çekimin ana işini bir cümleyle yaz: replik doğru kişide, doğru ve net; yüz tanınıyor; bakış yönü doğru. Bu tutuyorsa arka plan ayrıntısı, kumaş kıvrımı gibi ikincil kusurlar yayına girer; gerekirse kurguda kısalt. Çıta yazılmazsa sessizce "kusursuz"a döner ve hiçbir bütçe yetmez.
 
-**Durma kuralı.** Bütçenin yarısında aynı kusur sürüyorsa yeniden üretme, yolu değiştir: çekimi ikiye böl, Seedance yerine Veo tek çekime geç, referansı değiştir ya da çekimi kurgudan çıkar (davetiye kartı örneği: `docs/03-dersler.md` → "Yazılı nesneler"). Denemeler arasında **tek şeyi** değiştir ve `harcama.txt`'ye bir satır yaz: ne değişti, sonuç ne oldu. İki satırda aynı kusur varsa promptu yeniden yaz.
+**Durma kuralı.** Bütçenin yarısında (Veo'da 2. deneme, Seedance'te 1. deneme sonrası) aynı kusur sürüyorsa yeniden üretme, yolu değiştir: çekimi ikiye böl, Seedance yerine Veo tek çekime geç, referansı değiştir ya da çekimi kurgudan çıkar (davetiye kartı örneği: `docs/03-dersler.md` → "Yazılı nesneler"). Denemeler arasında **tek şeyi** değiştir ve `harcama.txt`'ye satırı şu biçimde yaz: `etiket kredi # ne değişti → sonuç` (ör. `b1-V2b 6 # lens satırı → bakış düzeldi`). `#` sonrası not, toplama girmez; toplam yine ikinci sütundan alınır. İki satırda aynı kusur varsa promptu yeniden yaz.
 
 **Kare zinciri hataları** (her satırda tek değişiklik):
 
 | Belirti | Olası neden | Değiştir |
 |---|---|---|
-| Kimlik kayıyor, zincir uzadıkça yüz başkalaşıyor | Önceki klibin son karesi kimlik kaynağı olmuş | Kimliği karakter sayfasından (`@<Ad>`) yeniden al; son kare yalnız konum ve ışık verir (§9). 2–3 halkadan sonra zinciri karakter sayfasından yeniden başlat |
+| Kimlik kayıyor, zincir uzadıkça yüz başkalaşıyor | Önceki klibin son karesi kimlik kaynağı olmuş | Kimliği karakter sayfasından (`@<Ad>`) yeniden al; son kare yalnız konum ve ışık verir (§9). 2–3 halkadan sonra zinciri yeniden başlat: Veo'da §7 ile karakter sayfasından yeni başlangıç karesi üret (ücretli, onay), Seedance'te `@<Kare>` satırını sil |
 | Eksen dönüyor, birleşimde karakterler taraf değiştiriyor | Ekran yönü yazılmamış | Tarafı ve bakış yönünü açık yaz; §10'un BETWEEN THEM satırını her klipte aynen kopyala |
-| Replik tekrar ediliyor | Önceki klipte söylenen replik promptta kalmış | Söyleneni promptdan çıkar, "she has already said it" yaz; tırnakta yalnız yeni replik kalsın |
+| Replik tekrar ediliyor | Önceki klipte söylenen replik promptta kalmış | Söyleneni promptdan çıkar, "<Ad> has already said it" yaz; tırnakta yalnız yeni replik kalsın |
 | Eylem baştan başlıyor | Biten eylem bitmiş olarak yazılmamış | Bitmiş hâli yaz ("the door already stands open"), yalnız sonrasını iste |
 | Sonraki an erken geliyor | Sonraki klibin eylemi bu prompta sızmış | Bir klip, bir an; gelecek eylemleri sil |
 | Eşya önceki klibe uymuyor | Eşyanın kimde, nerede, hangi durumda olduğu yazılmamış | CONTINUITY LOCKS'a eşya satırı ekle |
