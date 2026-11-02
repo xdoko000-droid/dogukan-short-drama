@@ -32,6 +32,8 @@ VARSAYILAN = {
     "fps": 30,
     "bolum_basligi": "",          # ornek: "BÖLÜM 1"
     "baslik_suresi": 1.0,
+    "acilis_yazisi": "",          # yeni izleyiciye konu cumlesi, ust kisimda (ornek: "Dugune 3 gun kala gelin degisti")
+    "acilis_suresi": 2.5,
     "muzik": True,
     "muzik_bpm": 100,
     "muzik_seviyesi_db": -15,     # konusmaya gore (dB)
@@ -278,6 +280,9 @@ def ekleri_hazirla(cekimler: list[dict], ay: dict, D: float) -> list[dict]:
     if ay["bolum_basligi"]:
         ekler.append({"bas": 0, "bit": min(float(ay["baslik_suresi"]), D), "stil": "Bolum",
                       "metin": altyazi.tr_buyuk(ay["bolum_basligi"])})
+    if ay["acilis_yazisi"]:
+        ekler.append({"bas": 0, "bit": min(float(ay["acilis_suresi"]), D), "stil": "Acilis",
+                      "metin": ay["acilis_yazisi"]})
     for c in cekimler:
         a, b = c["bas"], c["bas"] + c["sure"]
         if c["tip"] == "kart" and c.get("kart"):

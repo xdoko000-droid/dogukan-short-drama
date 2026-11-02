@@ -18,6 +18,8 @@ Her betikte `--help` var.
 | `sfx.py` | BOOM, WHOOSH, RISER, HIT ve BPM ayarlı gerilim müziği sentezler (harici ses dosyası yok) | `python scripts/sfx.py --cikti output/sfx --bpm 100` |
 | `zincir.py` | Kare zinciri: A klibinin sonunda B'nin ilk karesine en benzeyen kareyi SSIM ile bulur, kesim noktası önerir | `python scripts/zincir.py klipler/01.mp4 klipler/02.mp4` |
 | `kanca_kes.py` | **Ücretsiz.** Bölümün ilk N sn'sini (varsayılan 15) ayrı mp4 olarak keser; Virality Predictor ile kanca kontrolü için | `python scripts/kanca_kes.py bolum-01.mp4 --sn 15` |
+| `bitis_duzelt.py` | **Ücretsiz.** Siyah son kartı kaldırır; son çekimin son karesini 0,8 sn dondurup üstüne "Devamı yarın" yazar. `kurgu.json`'u yerinde günceller (yedek `kurgu.onceki.json`); sonra `kurgu.py` | `python scripts/bitis_duzelt.py kurgu.json --yazi "Devamı yarın 20:30"` |
+| `yayin_paketi.py` | **Ücretsiz.** Yayın paketi → `<bölüm>/yayin/`: video (`--max-mb` ile 2 geçişli sıkıştırma; Chrome eklentisiyle yüklemede 9.3), altyazısız ham klipten kapak, açıklama (bölüme özel soru + "1. bölüm profilde") ve `sabit-yorum.txt` | `python scripts/yayin_paketi.py bolum-02.mp4 --no 2 --seri "Dizi" --kanca "…" --merak "…" --soru "…"` |
 | `kare.py` | Klipten belirli saniyelerde (ya da `son`) PNG kare çıkarır | `python scripts/kare.py klipler/01.mp4 --sn 1.5 son` |
 | `ffmpeg_yol.py` | Ortak modül: libass'li ffmpeg'i seçer (yoksa imageio-ffmpeg), süre/LUFS ölçer | `python scripts/ffmpeg_yol.py` |
 
@@ -32,7 +34,8 @@ Bölüm başına düzen: `uretim/<seri>/bolumler/bolum-01/{senaryo.md, cekim-lis
 
 **`ayarlar`** (hepsi opsiyonel): `bolum_basligi` ("Bölüm 1"), `baslik_suresi` (sn), `genislik`/`yukseklik` (1080x1920),
 `fps` (30), `muzik` (true/false), `muzik_bpm` (100), `muzik_seviyesi_db` (konuşmaya göre, −15), `hedef_lufs` (−15),
-`max_mb` (30; aşılırsa bitrate düşürülüp yeniden kodlanır), `altyazi` (true), `whisper_model` ("small";
+`max_mb` (30; aşılırsa bitrate düşürülüp yeniden kodlanır), `acilis_yazisi` (ilk saniyelerde üstte sarı konu cümlesi,
+yeni izleyici için; ör. "Düğüne 3 gün kala gelin değişti…"), `acilis_suresi` (2.5), `altyazi` (true), `whisper_model` ("small";
 daha doğru ama yavaş: "large-v3-turbo"), `dil` ("tr"), `font` (özel kalın .ttf yolu), `kontrast`, `doygunluk`, `crf`.
 
 **`cekimler`** listesi, sırayla. Her öğe ya bir klip ya bir karttır:
@@ -41,7 +44,7 @@ daha doğru ama yavaş: "large-v3-turbo"), `dil` ("tr"), `font` (özel kalın .t
 |---|---|---|---|
 | `klip` | ✓ | | kaynak dosya (`klipler/01.mp4`) |
 | `giris`, `cikis` | ✓ | | kaynakta saniye (varsayılan: başı ve sonu) |
-| `kart` | | ✓ | kart metni (`"3 GÜN ÖNCE"`, `"Devamı için\ntakip et"`; boş = düz siyah) |
+| `kart` | | ✓ | kart metni (`"3 GÜN ÖNCE"`; boş = düz siyah). Bölümü siyah kartla bitirme: `bitis_duzelt.py` |
 | `sure` | | ✓ | kart süresi (sn) |
 | `renk` | | ✓ | kart rengi (varsayılan `black`) |
 | `punch_in` | ✓ | | çekim sonunda yakınlaştırma yüzdesi (10 = %110) |

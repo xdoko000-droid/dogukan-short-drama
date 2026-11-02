@@ -90,6 +90,23 @@
 - Aynı açılış kurguyla 24 → 30, ek aksiyon klibiyle 32 oldu. Ayrıntı: `.claude/skills/short-drama-tr/references/kanca-kontrolu.md`.
 - Kural: ilk karede hareket ve duygu; ilk 2 sn'de "Bölüm X" yazısı ve sessizlik yok.
 
+## Yayın verisi (izleyici tutma)
+
+İlk dizinin ilk 4 bölümünün Instagram istatistiklerinden. Grafik: "İnsanların Reels videonu izleme süresi".
+
+| Grafikte ne görüldü | Neden | Ne yapıyoruz |
+|---|---|---|
+| Son 2 sn'de dikey düşüş (~%35 → ~%10) | Siyah "Devamı için takip et" kartı: izleyici videonun bittiğini anlayıp çıkıyor | Siyah kart yok. Son kare 0,8 sn donar + "Devamı yarın" (`scripts/bitis_duzelt.py`) |
+| Bölüm ortasında ikinci çöküş (%30 → %5) | Geri dönüşten sonra açılış sahnesi **aynen** tekrar oynatıldı | Aynı görüntü bölüm içinde iki kez yok; geri dönüşten sonra hikâye açılışın devamından sürer |
+| Geçme oranı bölüm bölüm arttı (%24 → %34 → %40) | Yeni bölüm çoğunlukla diziyi hiç görmemiş kişilere gösteriliyor; bağlamsız sahneyi anlamıyorlar | İlk 2,5 sn üstte konu cümlesi (`acilis_yazisi`); açılış bağlam gerektirmeyen görsel çatışma |
+| En çok izlenen ve takip getiren bölüm | Kapıdan fırlatılan bavulla açılıyordu: önceki bölümü bilmeden anlaşılıyor | Açılışı konuşan kafa ya da kâğıt okuma ile değil, eylemle yap |
+| Her bölümde yorum 0 | Açıklamada soru yoktu | Bölüme özel soru + sabit yorum (`scripts/yayin_paketi.py`) |
+| İlk ~5 sn'de izleyicinin ~yarısı gidiyor | Sakin açılış (avukat oturup kâğıt okuyor) | İlk replik 0,3 sn içinde; en sert anla aç |
+
+- TikTok ve Instagram aynı videoya çok farklı dağıtım yaptı (aynı bölüm: birinde 2, öbüründe yüzlerce izlenme).
+  Tek platformun verisiyle karar verme; ikisine de bak.
+- Ölçümü yayından 1–2 gün sonra yap; ilk saatlerin verisi çok küçük.
+
 ## Kısa özet
 
 1. Kıyafet güvenli.
@@ -98,3 +115,6 @@
 4. Replik kısa, ünsüz net.
 5. Sahne sürekli, kurgu hızlı.
 6. Karakterler konuşur.
+7. Siyah son kart yok; son kare donar.
+8. Açılışta konu cümlesi; aynı görüntü iki kez yok.
+9. Açıklamada soru.

@@ -8,11 +8,11 @@ Kurgu sırasıyla. Her satır kurgudaki bir çekimdir (1.5–3 sn). Birden fazla
 
 | # | Zaman | Süre | Kadraj | Kim | Türkçe replik | Kaynak | Ses / kurgu |
 |---|---|---|---|---|---|---|---|
-| 1 | 0.0–2.4 | 2.4 | <yakın plan, mekân> | <Ad> | "<…>" | YENİ V1 (0.3–2.7) | "Bölüm <N>" 0–1 sn · BOOM · punch-in %6 |
+| 1 | 0.0–2.4 | 2.4 | <yakın plan, mekân> | <Ad> | "<…>" | YENİ V1 (0.3–2.7) | "Bölüm <N>" 0–1 sn · konu cümlesi 0–2,5 sn · BOOM · punch-in %6 |
 | 2 | 2.4–3.6 | 1.2 | <karşı çekim yakın> | <Ad> (tepki, ağız kapalı) | — | YENİ V2 (0.0–1.2) | riser kısa |
 | 3 | 3.6–4.6 | 1.0 | Siyah | — | "3 GÜN ÖNCE" | kurgu | WHOOSH |
 | … | | | | | | | |
-| <son> | <…> | 2.5 | Siyah | — | "Devamı için takip et" | kurgu | yankı söner |
+| <son> | <…> | +0.8 | Son karenin donması | — | "Devamı yarın" | kurgu (`scripts/bitis_duzelt.py`) | yankı söner · siyah kart yok |
 
 **Darbe ritmi:** ~<…> · ~<…> · ~<…> · ~<…> sn
 **Ortalama çekim:** ~<…> sn

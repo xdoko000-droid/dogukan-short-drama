@@ -56,8 +56,14 @@ Kurallar:
 | Yazı | Yer | Süre |
 |---|---|---|
 | "Bölüm X" | İlk çekimin üstünde, küçük, üst orta | 0–1 sn |
+| Konu cümlesi (`ayarlar.acilis_yazisi`) | "Bölüm X"in hemen altı, sarı, tek satır | 0–2,5 sn (`acilis_suresi`) |
 | "3 GÜN ÖNCE" | Siyah kart, ortada | ~1 sn |
-| "Devamı için takip et" | Son siyah kart, ortada | ~2.5 sn |
+| "Devamı yarın" | Donan son karenin üstünde (`scripts/bitis_duzelt.py`) | ~0,8 sn |
+
+**Siyah son kart kullanma.** Yayın verisinde izleyicinin çoğu siyah "Devamı için takip et" kartında çıktı.
+Kurgu dosyası siyah kartla bittiyse `python scripts/bitis_duzelt.py kurgu.json` kartı kaldırır, son kareyi dondurur.
+Konu cümlesi diziyi bilmeyen izleyiciye ilk saniyede neyi izlediğini söyler (ör. "Düğüne 3 gün kala gelin değişti…");
+dizi boyunca aynı kalır, yüzün üstüne binmez.
 
 ## Teknik
 
@@ -75,5 +81,7 @@ Kurallar:
 - [ ] Hiçbir karede okunur anlamsız yazı yok (kart, ekran, tabela).
 - [ ] Dinleyenlerin ağzı kapalı; yanlış kişi konuşmuyor.
 - [ ] Altyazı replikle birebir.
-- [ ] Son kart "Devamı için takip et".
+- [ ] Siyah son kart yok; son kare donuyor, üstünde "Devamı yarın".
+- [ ] İlk 2,5 sn'de konu cümlesi var.
+- [ ] Aynı görüntü bölüm içinde iki kez yok (geri dönüş sonrası tekrar yok).
 - [ ] −15 LUFS, 1080x1920, 9:16.
