@@ -93,12 +93,16 @@ intikam, saklı kimlik, miras, düğün/nişan/kına. Hikâyeyi bir **duyguya** 
 
 | Bölüm | Süre | Ne olur |
 |---|---|---|
-| **Kanca** | 0–5 sn | Bölümün doruk anıyla aç. Sonra siyah kart "3 GÜN ÖNCE" ile geri dön. |
+| **Kanca** | 0–5 sn | Bölümün doruk anıyla aç; ilk replik 0,3 sn içinde. Üstte 2,5 sn dizinin konu cümlesi (`acilis_yazisi`). Sonra siyah kart "3 GÜN ÖNCE" ile geri dön. |
 | **Bağlam** | 5–25 sn | Kim, ne istiyor. Duygu dalgası: başlangıç → umut → darbe → şans. |
 | **Tırmanış** | 25–45 sn | Yeni karakter ya da ters köşe. Tepki çekimleri: aynı anı iki kişi zıt okur. |
-| **Doruk + cliffhanger** | 45–60 sn | Cevaba bir adım kala kes. "Söz ver, gösterme." Siyah ekran, "Devamı için takip et". |
+| **Doruk + cliffhanger** | 45–60 sn | Cevaba bir adım kala kes. "Söz ver, gösterme." Son kare 0,8 sn donar, üstünde "Devamı yarın". **Siyah son kart yok.** |
 
 Kurallar:
+- **Yeni izleyici için yaz:** platform 2. bölümden sonrasını çoğunlukla diziyi hiç görmemiş kişilere gösterir. Açılış
+  önceki bölümü bilmeden anlaşılan görsel bir çatışma olsun (kapıdan fırlatılan bavul gibi), konuşan kafa ya da okunan kâğıt değil.
+- **Aynı görüntüyü bölüm içinde iki kez gösterme.** Geri dönüşten ("BİR SAAT ÖNCE") sonra açılış sahnesini yeniden
+  oynatma; hikâye açılışın devamından sürsün. İzleyici tekrarı gördüğü saniyede çıkıyor.
 - **Darbe ritmi:** her 13–30 sn'de bir darbe (yeni bilgi, ihanet, ifşa). Örnek bölümde darbeler ~7, ~20, ~34, ~46. sn.
 - **Önemli yüzü geç göster.** Önce sırtı, eli, kıyafeti, gözleri; yüz en son. Kancada bir kez görünen yüz,
   bağlamda saklanır, dorukta geri gelir.
@@ -177,7 +181,8 @@ Ayrıntı: `references/kurgu-ses.md`. Betikler `scripts/` altında; her biri `--
 - Ses tasarımı (`scripts/sfx.py`): sentez BOOM (darbe), WHOOSH (geçiş), RISER (gerilim), sert gerilim müziği.
   Kritik replikten önce **0.3 sn tam sessizlik**. Efektleri replik altında kıs.
 - Altyazı (`scripts/altyazi.py`): kelime kelime, aktif kelime **sarı**, kalın beyaz, siyah kontur.
-- Ekran yazıları: "Bölüm X" (ilk 1 sn), "3 GÜN ÖNCE" (siyah kart), "Devamı için takip et" (son siyah kart).
+- Ekran yazıları: "Bölüm X" (ilk 1 sn), konu cümlesi (ilk 2,5 sn, `ayarlar.acilis_yazisi`), "3 GÜN ÖNCE" (siyah kart),
+  "Devamı yarın" (donan son karenin üstünde; `scripts/bitis_duzelt.py`). Siyah son kart koyma: izleyici orada çıkıyor.
 - Son miks **−15 LUFS**. Çıkış 1080x1920.
 - Kurgu: çekim listesini `kurgu.json`a çevir (örnek `examples/kurgu-ornek.json`), `scripts/kurgu.py` ile işle.
   Kare çıkarma: `scripts/kare.py`. Kare zinciri kesimi: `scripts/zincir.py`. Ortam kontrolü: `scripts/doctor.py`.
@@ -194,6 +199,9 @@ Ayrıntı: `references/kanca-kontrolu.md`.
 
 `docs/04-tiktok-yayin.md`: başlık "Bölüm N | <kanca cümlesi>", açıklamada "Kurgudur, AI ile üretildi.",
 AI etiketi açık, 3–5 hashtag, aynı seri için oynatma listesi.
+Paket: `scripts/yayin_paketi.py` (video, ham klipten kapak, açıklama, sabit yorum). Açıklamaya bölüme özel bir **soru**
+koy ve yeni geleni 1. bölüme yönlendir; yayından sonra sabit yorumu yaz. 1–3. bölümleri profilde sabitle (yalnız mobil uygulamada).
+Yayından 1–2 gün sonra izlenme grafiğine bak: `docs/03-dersler.md` → "Yayın verisi".
 
 ---
 
@@ -209,7 +217,7 @@ AI etiketi açık, 3–5 hashtag, aynı seri için oynatma listesi.
 8. Kurgu → kontrol kareleri → kullanıcıya göster → `kurgu.json` (`"cikti": "bolum-01.mp4"`) → `python scripts/kurgu.py uretim/<seri>/bolumler/bolum-01/kurgu.json --temiz`
    → son dosya `uretim/<seri>/bolumler/bolum-01/bolum-01.mp4`. Ara dosyalar `bolum-01/.kurgu-tmp/` altında.
    Kanca kontrolü (isteğe bağlı): `references/kanca-kontrolu.md`.
-9. Yayın metni (başlık, açıklama, hashtag).
+9. Yayın paketi: `python scripts/yayin_paketi.py <bolum-01.mp4> --no 1 --seri "<Dizi>" --kanca … --merak … --soru …`.
 
 Her adımın sonunda kısa durum ver: ne üretildi, ne harcandı, kalan tavan.
 

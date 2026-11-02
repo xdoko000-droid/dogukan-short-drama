@@ -86,7 +86,9 @@ Enerjinin çoğu kurgudan gelir:
 - BOOM, WHOOSH, RISER efektleri ve sert gerilim müziği (sentez, telifsiz).
 - Kritik replikten önce 0.3 sn sessizlik.
 - Kelime kelime altyazı, aktif kelime sarı.
-- "Bölüm X", "3 GÜN ÖNCE", "Devamı için takip et".
+- "Bölüm X" ve konu cümlesi (açılışta), "3 GÜN ÖNCE" (siyah kart), "Devamı yarın" (donan son karenin üstünde).
+  Siyah son kart yok: yayın verisinde izleyici orada çıkıyordu (`docs/03-dersler.md` → "Yayın verisi").
+  `examples/` altındaki örnek bu dersten önce yapıldı, hâlâ siyah kartla biter.
 - Son miks −15 LUFS.
 
 ### Kanca kontrolü

@@ -243,6 +243,7 @@ def ass_yaz(kelimeler: list[Kelime], yol: Path, sure: float, font_aile: str = "A
         f"Style: Bolum,{f},{round(46*sx)},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,{round(4*sx)},2,8,60,60,{round(150*sx)},1",
         f"Style: Kart,{f},{round(100*sx)},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,4,0,1,{round(7*sx)},3,5,60,60,0,1",
         f"Style: Yazi,{f},{round(70*sx)},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,2,0,1,{round(6*sx)},3,8,70,70,{round(380*sx)},1",
+        f"Style: Acilis,{f},{round(62*sx)},&H0000E6FF,&H0000E6FF,&H00000000,&H80000000,-1,0,0,0,100,100,2,0,1,{round(6*sx)},3,8,60,60,{round(215*sx)},1",
         "", "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
     ]
     olay = []

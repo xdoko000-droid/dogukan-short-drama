@@ -89,7 +89,7 @@ Yöntemin tamamı: `.claude/skills/short-drama-tr/SKILL.md`.
 | `docs/03-dersler.md` | Gerçek üretimden dersler (filtre, ses, kare zinciri) |
 | `docs/04-tiktok-yayin.md` | Yayın metni ve kuralları |
 | `docs/05-higgsfield-mcp-kurulum.md` | Higgsfield MCP ve CLI kurulumu |
-| `scripts/` | `doctor.py`, `kare.py`, `zincir.py`, `sfx.py`, `altyazi.py`, `kurgu.py`, `ornek_klip.py` (örnek kurgu için test klipleri), `deneme.py` (uçtan uca deneme), `kanca_kes.py` (kanca kontrolü için ilk 15 sn), `ffmpeg_yol.py` (ortak modül). `ornek_klip.py` ve `deneme.py` ücretsizdir, onay gerektirmez; Higgsfield'a dokunmaz. Kullanım: `scripts/README.md` ve `--help` |
+| `scripts/` | `doctor.py`, `kare.py`, `zincir.py`, `sfx.py`, `altyazi.py`, `kurgu.py`, `ornek_klip.py` (örnek kurgu için test klipleri), `deneme.py` (uçtan uca deneme), `kanca_kes.py` (kanca kontrolü için ilk 15 sn), `bitis_duzelt.py` (siyah son kart yerine donan son kare), `yayin_paketi.py` (video, kapak, açıklama, sabit yorum), `ffmpeg_yol.py` (ortak modül). `ornek_klip.py` ve `deneme.py` ücretsizdir, onay gerektirmez; Higgsfield'a dokunmaz. Kullanım: `scripts/README.md` ve `--help` |
 | `examples/kurgu-ornek.json` | `scripts/kurgu.py` için örnek kurgu dosyası (çekim listesinin makine hâli) |
 | `uretim/` | Kullanıcının üretimleri (git'e girmez) |
 
